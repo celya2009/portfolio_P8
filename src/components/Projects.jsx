@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/card";
 import { Badge } from "@/components/badge";
 import { Button } from "@/components/button";
+import './Projects.css';
+import kasaImg from '../assets/projet-kasa.png';
+import grimoireImg from '../assets/projet-mon-vieux-grimoire.png';
+import ninaImg from '../assets/projet-nina-ricci.png';
 
 const Projects = () => {
   const [filter, setFilter] = useState("Tous");
