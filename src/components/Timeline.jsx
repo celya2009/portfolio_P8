@@ -1,4 +1,5 @@
 import React from "react";
+import cvPdf from "../assets/mon-cv.pdf"; 
 
 const Timeline = () => {
   const experiences = [
@@ -25,7 +26,9 @@ const Timeline = () => {
               className="relative pl-6 md:pl-8 border-l-2 border-primary pb-6 md:pb-8 last:pb-0"
             >
               <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
-              <div className="bg-card border border-border rounded-lg p-4 sm:p-5 md:p-6">
+              <div className="bg-card border border-border rounded-lg p-6 sm:p-8 md:p-10 flex flex-col justify-center"
+  style={{ minHeight: "350px" }}
+>
                 <div className="text-xs sm:text-sm text-primary font-semibold mb-2">
                   {exp.year}
                 </div>
@@ -37,6 +40,17 @@ const Timeline = () => {
               </div>
             </div>
           ))}
+        </div>
+  {/* Bouton pour le CV */}
+        <div className="text-center mt-8">
+          <a
+            href={cvPdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-orange-400 text-white font-semibold rounded-lg hover:bg-orange-500 transition"
+          >
+            Voir mon CV
+          </a>
         </div>
       </div>
     </section>

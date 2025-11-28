@@ -1,29 +1,39 @@
 const About = () => {
   return (
-    <section id="about" className="py-12 md:py-20 px-4">
+    <section id="about" className="py-12 md:py-20 px-4 bg-background">
+
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 md:mb-8 text-center">
           À propos
         </h2>
-        <div className="bg-card border border-border rounded-lg p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
+        <div className="space-y-6">
           <p className="text-base md:text-lg text-card-foreground leading-relaxed">
-            Après une reconversion professionnelle, j'ai suivi la formation OpenClassrooms
-            pour devenir développeuse web. Cette expérience m'a permis de combiner ma créativité
-            et ma logique technique pour concevoir des sites performants et accessibles.
+            Après une reconversion professionnelle, j'ai suivi la formation <strong className="text-primary">OpenClassrooms</strong> 
+            pour devenir développeuse web. Cette expérience m'a permis de combiner ma créativité et ma logique technique 
+            pour concevoir des sites performants et accessibles.
           </p>
-          <p className="text-base md:text-lg text-card-foreground leading-relaxed">
-            Je maîtrise <strong className="text-primary">HTML5, CSS3, JavaScript ES6+, React et React Router</strong>, 
-            ainsi que <strong className="text-primary">Node.js, Express et MongoDB</strong>. J'ai développé une expertise 
-            en intégration responsive, création de composants modulaires et gestion de données sécurisée.
-          </p>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            Mon approche combine méthodologie Agile et design-driven, avec une attention particulière 
-            à l'accessibilité, aux performances et à la lisibilité du code. Je privilégie une interface 
-            claire et intuitive tout en gardant une rigueur technique.
-          </p>
+
+          <div>
+            <h3 className="text-xl md:text-2xl font-semibold mb-2 text-foreground">Compétences techniques</h3>
+            <ul className="list-disc list-inside text-base md:text-lg text-card-foreground space-y-1">
+              <li><strong>Front-End :</strong> HTML5, CSS3, JavaScript, React, React Router</li>
+              <li><strong>Back-End :</strong> Node.js, Express, MongoDB</li>
+              <li><strong>Expertise :</strong> intégration responsive, composants modulaires, gestion sécurisée des données</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl md:text-2xl font-semibold mb-2 text-foreground">Méthodologie & approche</h3>
+            <ul className="list-disc list-inside text-base md:text-lg text-card-foreground space-y-1">
+              <li>Méthodologie <strong>Agile</strong> et <strong>design-driven</strong></li>
+              <li>Priorité à l’<strong>accessibilité</strong>, aux <strong>performances</strong> et à la <strong>lisibilité du code</strong></li>
+              <li>Interface <strong>claire et intuitive</strong> avec rigueur technique</li>
+            </ul>
+          </div>
+
           <p className="text-base md:text-lg text-primary font-semibold leading-relaxed">
-            Mon objectif est d'intégrer une équipe produit innovante où je pourrai continuer à développer 
-            mes compétences en Front-End et Back-End, et contribuer à des projets web performants et accessibles.
+            Mon objectif est d'intégrer une équipe produit innovante où je pourrai continuer à développer mes compétences 
+            en Front-End et Back-End, et contribuer à des projets web performants et accessibles.
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/button";
 import { ArrowDown } from "lucide-react";
-import developerProfile from "@/assets/developer-profile.jpg";
+import profildeveloppeur from "@/assets/profil-developpeur.png";
 
 const Hero = () => {
   const scrollTo = (id) => {
@@ -8,51 +8,58 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20">
-      <div className="max-w-4xl mx-auto text-center space-y-8">
-        <div className="relative w-64 h-48 md:w-80 md:h-60 mx-auto">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-2xl blur-xl opacity-30 animate-pulse"></div>
-          <img
-            src={developerProfile}
-            alt="Malika Salhi - Développeuse Web Full Stack"
-            className="relative w-full h-full object-cover rounded-2xl border-4 border-primary shadow-2xl shadow-primary/40"
-          />
-        </div>
+    <section
+      className="relative h-[600px] md:h-screen w-full flex flex-col"
+      style={{
+        backgroundImage: `url(${profildeveloppeur})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Overlay sombre */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="space-y-4">
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-            Malika Salhi
-          </h1>
-          <p className="text-2xl md:text-3xl text-primary font-semibold">
-            Développeuse Full Stack Junior
-          </p>
-        </div>
-
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-          Passionnée par le Front-End et les interfaces interactives, avec un intérêt
-          particulier pour l'accessibilité et la performance web.
+      {/* TEXTE centré verticalement */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-5xl md:text-7xl font-bold text-white">
+          Malika Salhi
+        </h1>
+        <p className="text-2xl md:text-3xl text-white/90 font-semibold mt-2">
+          Développeuse Full Stack Junior
         </p>
 
+        {/* Speech agrandi et aéré */}
+        <p className="text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mt-6 leading-relaxed">
+          Passionnée par le Front-End et les interfaces interactives, 
+          avec un intérêt particulier pour l'accessibilité et la performance web.
+        </p>
+      </div>
+
+      {/* BOUTONS + FLÈCHE collés en bas de l'image */}
+      <div className="relative z-10 flex flex-col items-center gap-4 mb-8 px-4">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          {/* Bouton Me contacter */}
           <Button
             onClick={() => scrollTo("contact")}
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            className="px-8 w-48 bg-primary border-primary text-white hover:bg-primary/90"
           >
             Me contacter
           </Button>
+
+          {/* Bouton Voir mes projets */}
           <Button
-            variant="outline"
-            size="lg"
-            className="border-border hover:bg-muted"
             onClick={() => scrollTo("projects")}
+            size="lg"
+            className="px-8 w-48 bg-primary border-primary text-white hover:bg-primary/90"
           >
             Voir mes projets
           </Button>
         </div>
 
-        <div className="pt-12 animate-bounce">
-          <ArrowDown className="mx-auto text-muted-foreground" size={32} />
+        {/* Flèche centrée sous les boutons */}
+        <div className="animate-bounce mt-2">
+          <ArrowDown className="text-white/80" size={32} />
         </div>
       </div>
     </section>

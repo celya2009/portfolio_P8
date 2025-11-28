@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/button";
+import logo from '../assets/logo_sm.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,50 +25,55 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <div className="text-xl font-bold text-primary">Portfolio</div>
+  <nav className="fixed top-0 w-full bg-[hsl(var(--background))] backdrop-blur-sm border-b border-border z-50">
 
-          {/* Menu desktop */}
-          <div className="hidden md:flex gap-6">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
 
-          {/* Hamburger mobile */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </Button>
+
+      <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+        {/* Logo et titre */}
+        <div className="flex items-center gap-2">
+          <img src={logo} alt="Logo" className="h-10 w-10" />
+          <span className="text-xl font-bold text-primary">Portfolio</span>
         </div>
 
-        {/* Menu mobile */}
-        {isOpen && (
-          <div className="md:hidden py-4 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted rounded transition-colors"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-        )}
+        {/* Menu desktop */}
+        <div className="hidden md:flex gap-6">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.href)}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Hamburger mobile */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X /> : <Menu />}
+        </Button>
       </div>
+
+      {/* Menu mobile */}
+      {isOpen && (
+        <div className="md:hidden py-4 space-y-2 max-w-6xl mx-auto px-4">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.href)}
+              className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted rounded transition-colors"
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };

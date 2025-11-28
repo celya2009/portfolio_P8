@@ -1,36 +1,38 @@
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/card";
-import { Badge } from "@/components/badge";
-import { Button } from "@/components/button";
-import './Projects.css';
+import React, { useState } from 'react';
+import './projects.css';
+import ProjectCard from './projectcard';
+
+// Images des projets
+import bookiImg from '../assets/projet-booki.png';
 import kasaImg from '../assets/projet-kasa.png';
 import grimoireImg from '../assets/projet-mon-vieux-grimoire.png';
-import ninaImg from '../assets/projet-nina-ricci.png';
 
-const Projects = () => {
+const projects = [
+  {
+    title: "Booki",
+    description: "Intégration HTML/CSS à partir d'une maquette Figma, site responsive pour réservation d'hébergements.",
+    technologies: ["HTML5", "CSS3", "Figma"],
+    category: "Frontend",
+    image: bookiImg
+  },
+  {
+    title: "Kasa",
+    description: "Interface React avec navigation multi-pages via React Router et composants réutilisables.",
+    technologies: ["React", "React Router", "CSS3"],
+    category: "React",
+    image: kasaImg
+  },
+  {
+    title: "Mon Vieux Grimoire",
+    description: "Back-End Node.js/Express/MongoDB avec CRUD et authentification, site de notation de livres.",
+    technologies: ["Node.js", "Express", "MongoDB"],
+    category: "Backend",
+    image: grimoireImg
+  }
+];
+
+const Project = () => {
   const [filter, setFilter] = useState("Tous");
-
-  const projects = [
-    {
-      title: "Booki",
-      description: "Intégration HTML/CSS à partir d'une maquette Figma, site responsive pour réservation d'hébergements.",
-      technologies: ["HTML5", "CSS3", "Figma"],
-      category: "Frontend"
-    },
-    {
-      title: "Kasa",
-      description: "Interface React avec navigation multi-pages via React Router et composants réutilisables.",
-      technologies: ["React", "React Router", "CSS3"],
-      category: "React"
-    },
-    {
-      title: "Mon Vieux Grimoire",
-      description: "Back-End Node.js/Express/MongoDB avec CRUD et authentification, site de notation de livres.",
-      technologies: ["Node.js", "Express", "MongoDB"],
-      category: "Backend"
-    }
-  ];
-
   const categories = ["Tous", "Frontend", "React", "Backend"];
   const filteredProjects = filter === "Tous" ? projects : projects.filter(p => p.category === filter);
 
@@ -42,34 +44,20 @@ const Projects = () => {
         {/* Filtres */}
         <div className="flex flex-wrap gap-2 justify-center mb-8 md:mb-12">
           {categories.map(category => (
-            <Button
+            <button
               key={category}
-              variant={filter === category ? "default" : "outline"}
+              className={`filter-btn ${filter === category ? "active" : ""}`}
               onClick={() => setFilter(category)}
             >
               {category}
-            </Button>
+            </button>
           ))}
         </div>
 
-        {/* Cartes projets */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
-          {filteredProjects.map(project => (
-            <Card key={project.title} className="border-border bg-card hover:border-primary transition-colors">
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map(tech => (
-                    <Badge key={tech} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+        {/* Grille des projets */}
+        <div className="projects-grid">
+          {filteredProjects.map((projectItem) => (
+            <ProjectCard key={projectItem.title} project={projectItem} />
           ))}
         </div>
       </div>
@@ -77,4 +65,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Project;
