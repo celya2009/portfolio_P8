@@ -1,54 +1,94 @@
 import { Badge } from "@/components/badge";
-import skillsIllustration from "@/assets/skills-illustration.png";
+
+// Logos des compétences techniques
+import htmlLogo from "@/assets/logos/html5.svg";
+import cssLogo from "@/assets/logos/css.svg";
+import jsLogo from "@/assets/logos/javascript.svg";
+import reactLogo from "@/assets/logos/react.svg";
+import nodeLogo from "@/assets/logos/nodejs.svg";
+import mongoLogo from "@/assets/logos/mongodb.svg";
+import sassLogo from "@/assets/logos/sass.svg";
+import githubLogo from "@/assets/logos/github.svg";
+import figmaLogo from "@/assets/logos/figma.svg";
+import tailwindLogo from "@/assets/logos/tailwindcss.svg";
 
 const Skills = () => {
   const technicalSkills = [
-    "HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Node.js",
-    "Next.js", "Tailwind CSS", "Git", "PostgreSQL", "MongoDB", "REST API"
+    { name: "HTML5", logo: htmlLogo },
+    { name: "CSS3", logo: cssLogo },
+    { name: "JavaScript", logo: jsLogo },
+    { name: "React", logo: reactLogo },
+    { name: "Node.js", logo: nodeLogo },
+    { name: "MongoDB", logo: mongoLogo },
+    { name: "Sass", logo: sassLogo },
+    { name: "GitHub", logo: githubLogo },
+    { name: "Figma", logo: figmaLogo },
+    { name: "Tailwind CSS", logo: tailwindLogo },
   ];
 
   const softSkills = [
-    "Travail d'équipe", "Communication", "Résolution de problèmes",
-    "Adaptabilité", "Gestion de projet", "Créativité"
+    "Travail d'équipe",
+    "Communication",
+    "Gestion de problèmes",
+    "Adaptabilité",
+    "Gestion de projet",
+    "Créativité"
   ];
 
   return (
-    <section id="skills" className="py-12 md:py-20 px-4 bg-muted/30">
+    <section id="skills" className="py-12 md:py-20 px-4 bg-background min-h-screen">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">Compétences</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 text-center">
+          Compétences
+        </h2>
 
-        <div className="mb-12 max-w-2xl mx-auto">
-          <img
-            src={skillsIllustration}
-            alt="Illustration des compétences techniques"
-            className="w-full h-auto object-cover rounded-lg"
-          />
-        </div>
-
-        {/* Compétences techniques */}
-        <div className="space-y-8">
-          <div className="bg-card border border-border rounded-lg p-4 md:p-8">
-            <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">Compétences techniques</h3>
-            <div className="flex flex-wrap gap-3">
-              {technicalSkills.map(skill => (
-                <Badge key={skill} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Soft Skills */}
-          <div className="bg-card border border-border rounded-lg p-4 md:p-8">
-            <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-4">Soft Skills</h3>
-            <div className="flex flex-wrap gap-3">
-              {softSkills.map(skill => (
-                <Badge key={skill} variant="outline">{skill}</Badge>
-              ))}
-            </div>
+        {/* Compétences Techniques */}
+        <div 
+          className="rounded-3xl p-4 mb-12 shadow-md"
+          style={{ backgroundColor: '#f79628ff'}} 
+        >
+          <h3 className="text-xl md:text-2xl font-bold text-black mb-6 text-center">
+            TECHNIQUES
+          </h3>
+          <div className="grid grid-cols-5 gap-4 justify-items-center">
+            {technicalSkills.map(skill => (
+              <div key={skill.name} className="flex flex-col items-center gap-1">
+                <img src={skill.logo} alt={skill.name} className="w-10 h-10"/>
+                <span className="text-sm md:text-base font-semibold text-black">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Compétences Humaines */}
+        <div 
+          className="rounded-3xl p-4 shadow-md"
+          style={{ backgroundColor: '#f79628ff' }} 
+        >
+          <h3 className="text-xl md:text-2xl font-bold text-black mb-6 text-center">
+            HUMAINES
+          </h3>
+          <div className="grid grid-cols-3 gap-3 justify-items-center">
+            {softSkills.map(skill => (
+           
+           <Badge 
+           key={skill} 
+           variant="outline" 
+           className="text-black font-bold w-36 h-12 flex items-center justify-center"
+           style={{ backgroundColor: '#c75a00', borderColor: '#c75a00' }} >
+           {skill}
+           </Badge>
+
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
 export default Skills;
+
