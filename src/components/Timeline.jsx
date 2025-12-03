@@ -47,7 +47,7 @@ const Timeline = () => {
             href={cvPdf}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-orange-400 text-white font-semibold rounded-lg hover:bg-orange-500 transition"
+            className="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-[#b26500] transition"
           >
             Voir mon CV
           </a>

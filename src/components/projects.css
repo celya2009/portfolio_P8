@@ -9,15 +9,16 @@
 /* Carte projet */
 .project-card {
   position: relative;
-  width: 350px;
+  width: 370px;
   height: 350px; /* ajusté pour mieux voir les images */
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.3s, box-shadow 0.3s;
   background-size: cover;
   background-position: center;
+  border: 6px solid #383838; 
 }
 
 .project-card:hover {
@@ -120,8 +121,8 @@
 }
 
 .modal-content .badge {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background-color: #c78100ff;
+  color: #e2d7d7;
   padding: 3px 8px;
   border-radius: 5px;
   font-size: 0.75rem;
@@ -146,6 +147,6 @@
 }
 
 .filter-btn.active {
-  background-color: #ffa500;
+  background-color: #D97706;
   color: #fff;
 }

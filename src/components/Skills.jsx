@@ -45,29 +45,35 @@ const Skills = () => {
         {/* Compétences Techniques */}
         <div 
           className="rounded-3xl p-4 mb-12 shadow-md"
-          style={{ backgroundColor: '#f79628ff'}} 
+          style={{ backgroundColor: '#313030ff'}} 
         >
-          <h3 className="text-xl md:text-2xl font-bold text-black mb-6 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
             TECHNIQUES
           </h3>
-          <div className="grid grid-cols-5 gap-4 justify-items-center">
-            {technicalSkills.map(skill => (
-              <div key={skill.name} className="flex flex-col items-center gap-1">
-                <img src={skill.logo} alt={skill.name} className="w-10 h-10"/>
-                <span className="text-sm md:text-base font-semibold text-black">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+         <div className="grid grid-cols-5 gap-4 justify-items-center">
+  {technicalSkills.map(skill => (
+    <div key={skill.name} className="flex flex-col items-center gap-1">
+      <img 
+        src={skill.logo} 
+        alt={skill.name} 
+        className="w-10 h-10"
+        style={{ filter: "invert(31%) sepia(95%) saturate(610%) hue-rotate(10deg) brightness(95%) contrast(90%)" }}
+      />
+      <span className="text-sm md:text-base font-semibold text-white">
+        {skill.name}
+      </span>
+    </div>
+  ))}
+</div>
+</div>
+
 
         {/* Compétences Humaines */}
         <div 
           className="rounded-3xl p-4 shadow-md"
-          style={{ backgroundColor: '#f79628ff' }} 
+          style={{ backgroundColor: '#313030ff' }} 
         >
-          <h3 className="text-xl md:text-2xl font-bold text-black mb-6 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
             HUMAINES
           </h3>
           <div className="grid grid-cols-3 gap-3 justify-items-center">
@@ -76,8 +82,8 @@ const Skills = () => {
            <Badge 
            key={skill} 
            variant="outline" 
-           className="text-black font-bold w-36 h-12 flex items-center justify-center"
-           style={{ backgroundColor: '#c75a00', borderColor: '#c75a00' }} >
+           className="text-white font-bold w-36 h-12 flex items-center justify-center"
+           style={{ backgroundColor: '#D97706', borderColor: '#D97706' }} >
            {skill}
            </Badge>
 

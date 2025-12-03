@@ -58,7 +58,7 @@ const Contact = () => {
               <Input placeholder="Votre nom" required className="bg-background border-border text-foreground" />
               <Input type="email" placeholder="Votre email" required className="bg-background border-border text-foreground" />
               <Textarea placeholder="Votre message" rows={5} required className="bg-background border-border text-foreground resize-none" />
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button type="submit" className="w-full bg-primary hover:bg-[#b26500] text-primary-foreground">
                 Envoyer le message
               </Button>
             </form>
