@@ -9,7 +9,7 @@ import grimoireImg from '../assets/projet-mon-vieux-grimoire.png';
 
 const projects = [
   {
-    title: "Booki",
+    title: "BOOKI",
     description: "Intégration HTML/CSS à partir d'une maquette Figma, site responsive pour réservation d'hébergements.",
     technologies: ["HTML5", "CSS3", "Figma"],
     category: "Frontend",
@@ -21,7 +21,7 @@ const projects = [
     resultats: "Site Booki fonctionnel et responsive, conforme à la maquette."
   },
   {
-    title: "Kasa",
+    title: "KASA",
     description: "Interface React avec navigation multi-pages via React Router et composants réutilisables.",
     technologies: ["React", "React Router", "CSS3"],
     category: "React",
@@ -33,7 +33,7 @@ const projects = [
     resultats: "Interface Kasa fonctionnelle avec navigation fluide entre les pages."
   },
   {
-    title: "Mon Vieux Grimoire",
+    title: "MON VIEUX GRIMOIRE",
     description: "Back-End Node.js/Express/MongoDB avec CRUD et authentification, site de notation de livres.",
     technologies: ["Node.js", "Express", "MongoDB"],
     category: "Backend",
