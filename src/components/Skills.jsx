@@ -1,4 +1,4 @@
-import { Badge } from "@/components/badge";
+import React, { useState, useEffect } from "react";
 
 // Logos des compétences techniques
 import htmlLogo from "@/assets/logos/html5.svg";
@@ -12,28 +12,71 @@ import githubLogo from "@/assets/logos/github.svg";
 import figmaLogo from "@/assets/logos/figma.svg";
 import tailwindLogo from "@/assets/logos/tailwindcss.svg";
 
-const Skills = () => {
-  const technicalSkills = [
-    { name: "HTML5", logo: htmlLogo },
-    { name: "CSS3", logo: cssLogo },
-    { name: "JavaScript", logo: jsLogo },
-    { name: "React", logo: reactLogo },
-    { name: "Node.js", logo: nodeLogo },
-    { name: "MongoDB", logo: mongoLogo },
-    { name: "Sass", logo: sassLogo },
-    { name: "GitHub", logo: githubLogo },
-    { name: "Figma", logo: figmaLogo },
-    { name: "Tailwind CSS", logo: tailwindLogo },
-  ];
+// Icônes PNG soft skills
+import communication from "@/assets/icones/communication.png";
+import travailEquipe from "@/assets/icones/travaildequipe.png";
+import creativite from "@/assets/icones/creativite.png";
+import adaptabilite from "@/assets/icones/adaptabilité.png";
+import gestionProblemes from "@/assets/icones/gestiondeprobleme.png";
+import gestionProjet from "@/assets/icones/gestiondeprojet.png";
 
-  const softSkills = [
-    "Travail d'équipe",
-    "Communication",
-    "Gestion de problèmes",
-    "Adaptabilité",
-    "Gestion de projet",
-    "Créativité"
-  ];
+const technicalSkills = [
+  { name: "HTML5", logo: htmlLogo, description: "Intégration de contenu conforme à une maquette, structuration sémantique.", level: "Confirmé" },
+  { name: "CSS3", logo: cssLogo, description: "Mise en forme et responsive design avec CSS.", level: "Confirmé" },
+  { name: "JavaScript", logo: jsLogo, description: "Gestion des événements, DOM et interactivité.", level: "Intermédiaire" },
+  { name: "React", logo: reactLogo, description: "Création de composants et gestion d'état avec React.", level: "Intermédiaire" },
+  { name: "Node.js", logo: nodeLogo, description: "Création de serveur et manipulation des données côté back-end.", level: "Débutant" },
+  { name: "MongoDB", logo: mongoLogo, description: "Stockage structuré de données et opérations CRUD.", level: "Intermédiaire" },
+  { name: "Sass", logo: sassLogo, description: "Styles avancés avec variables et mixins.", level: "Débutant" },
+  { name: "GitHub", logo: githubLogo, description: "Gestion de versions et collaboration via Git.", level: "Intermédiaire" },
+  { name: "Figma", logo: figmaLogo, description: "Intégration d'une maquette design et adaptation front-end.", level: "Intermédiaire" },
+  { name: "Tailwind CSS", logo: tailwindLogo, description: "Stylisation rapide avec classes utilitaires.", level: "Débutant" },
+];
+
+const softSkills = [
+  { name: "Travail d'équipe", icon: travailEquipe },
+  { name: "Communication", icon: communication },
+  { name: "Gestion de problèmes", icon: gestionProblemes },
+  { name: "Gestion de projet", icon: gestionProjet },
+  { name: "Adaptabilité", icon: adaptabilite },
+  { name: "Créativité", icon: creativite },
+];
+
+const Skills = () => {
+  const [modalOpen, setModalOpen] = useState(null);
+  const [progress, setProgress] = useState(0);
+
+  const openModal = (skillName) => {
+    setModalOpen(skillName);
+    setProgress(0);
+  };
+
+  const closeModal = () => setModalOpen(null);
+
+  const getLevelWidth = (level) => {
+    switch (level) {
+      case "Débutant": return "30%";
+      case "Intermédiaire": return "60%";
+      case "Confirmé": return "100%";
+      default: return "0%";
+    }
+  };
+
+  useEffect(() => {
+    if (modalOpen) {
+      let width = 0;
+      const skill = technicalSkills.find((s) => s.name === modalOpen);
+      const target = parseInt(getLevelWidth(skill.level));
+      const interval = setInterval(() => {
+        if (width >= target) clearInterval(interval);
+        else {
+          width += 2;
+          setProgress(width);
+        }
+      }, 10);
+      return () => clearInterval(interval);
+    }
+  }, [modalOpen]);
 
   return (
     <section id="skills" className="py-12 md:py-20 px-4 bg-background min-h-screen">
@@ -43,58 +86,87 @@ const Skills = () => {
         </h2>
 
         {/* Compétences Techniques */}
-        <div 
-          className="rounded-3xl p-4 mb-12 shadow-md"
-          style={{ backgroundColor: '#313030ff'}} 
-        >
+        <div className="rounded-2xl p-4 mb-8 shadow-md bg-[#313030]">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
             TECHNIQUES
           </h3>
-         <div className="grid grid-cols-5 gap-4 justify-items-center">
-  {technicalSkills.map(skill => (
-    <div key={skill.name} className="flex flex-col items-center gap-1">
-      <img 
-        src={skill.logo} 
-        alt={skill.name} 
-        className="w-10 h-10"
-        style={{ filter: "invert(31%) sepia(95%) saturate(610%) hue-rotate(10deg) brightness(95%) contrast(90%)" }}
-      />
-      <span className="text-sm md:text-base font-semibold text-white">
-        {skill.name}
-      </span>
-    </div>
-  ))}
-</div>
-</div>
-
-
-        {/* Compétences Humaines */}
-        <div 
-          className="rounded-3xl p-4 shadow-md"
-          style={{ backgroundColor: '#313030ff' }} 
-        >
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
-            HUMAINES
-          </h3>
-          <div className="grid grid-cols-3 gap-3 justify-items-center">
-            {softSkills.map(skill => (
-           
-           <Badge 
-           key={skill} 
-           variant="outline" 
-           className="text-white font-bold w-36 h-12 flex items-center justify-center"
-           style={{ backgroundColor: '#D97706', borderColor: '#D97706' }} >
-           {skill}
-           </Badge>
-
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
+            {technicalSkills.map((skill) => (
+              <div
+                key={skill.name}
+                className="flex flex-col items-center gap-1 cursor-pointer"
+                onClick={() => openModal(skill.name)}
+              >
+                <img src={skill.logo} alt={skill.name} className="w-10 h-10" />
+                <span className="text-sm md:text-base font-semibold text-white text-center">
+                  {skill.name}
+                </span>
+              </div>
             ))}
           </div>
         </div>
 
+        {/* Compétences Humaines */}
+        <div className="rounded-2xl p-4 shadow-md bg-[#313030]">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-center">
+            HUMAINES
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 justify-items-center">
+            {softSkills.map((skill) => (
+              <div key={skill.name} className="flex flex-col items-center gap-1">
+                <img 
+                  src={skill.icon} 
+                  alt={skill.name} 
+                  className="w-10 h-10"
+                />
+                <span className="text-sm md:text-base font-semibold text-white text-center">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Modales compétences techniques */}
+      {technicalSkills.map(
+        (skill) =>
+          modalOpen === skill.name && (
+            <div
+              key={skill.name}
+              className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4"
+              onClick={closeModal}
+            >
+              <div
+                className="bg-[#2c2b2b] p-6 md:p-8 rounded-2xl w-full max-w-lg text-center relative"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="absolute top-4 right-4 text-white text-lg font-bold"
+                  onClick={closeModal}
+                >
+                  x
+                </button>
+
+                <h2 className="text-2xl font-bold mb-4">{skill.name}</h2>
+                <p className="mb-4 text-sm md:text-base">{skill.description}</p>
+
+                <div className="text-left">
+                  <span className="text-white font-semibold">Niveau :</span>
+                  <div className="bg-gray-700 h-3 rounded-full mt-1">
+                    <div
+                      className="bg-[#D97706] h-3 rounded-full transition-all duration-500"
+                      style={{ width: `${progress}%` }}
+                    ></div>
+                  </div>
+                  <span className="text-white text-sm">{skill.level}</span>
+                </div>
+              </div>
+            </div>
+          )
+      )}
     </section>
   );
 };
 
 export default Skills;
-

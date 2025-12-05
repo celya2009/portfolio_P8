@@ -13,7 +13,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section id="timeline" className="py-12 md:py-20 px-4">
+    <section id="timeline" className="py-12 md:py-20 px-4 bg-background min-h-screen">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
           Parcours
@@ -26,9 +26,7 @@ const Timeline = () => {
               className="relative pl-6 md:pl-8 border-l-2 border-primary pb-6 md:pb-8 last:pb-0"
             >
               <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
-              <div className="bg-card border border-border rounded-lg p-6 sm:p-8 md:p-10 flex flex-col justify-center"
-  style={{ minHeight: "350px" }}
->
+              <div className="bg-card border border-border rounded-lg p-6 sm:p-8 md:p-10 flex flex-col justify-center min-h-[350px]">
                 <div className="text-xs sm:text-sm text-primary font-semibold mb-2">
                   {exp.year}
                 </div>
@@ -41,7 +39,8 @@ const Timeline = () => {
             </div>
           ))}
         </div>
-  {/* Bouton pour le CV */}
+
+        {/* Bouton pour le CV */}
         <div className="text-center mt-8">
           <a
             href={cvPdf}

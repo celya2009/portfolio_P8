@@ -9,7 +9,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative h-[600px] md:h-screen w-full flex flex-col"
+      className="relative h-[600px] sm:h-[700px] md:h-screen w-full flex flex-col"
       style={{
         backgroundImage: `url(${profildeveloppeur})`,
         backgroundSize: "cover",
@@ -21,15 +21,15 @@ const Hero = () => {
 
       {/* TEXTE centré verticalement */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-5xl md:text-7xl font-bold text-white">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white">
           Malika Salhi
         </h1>
-        <p className="text-2xl md:text-3xl text-white/90 font-semibold mt-2">
+        <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-semibold mt-2">
           Développeuse Full Stack Junior
         </p>
 
         {/* Speech agrandi et aéré */}
-        <p className="text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mt-6 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-2xl text-white/80 max-w-xl md:max-w-3xl mx-auto mt-6 leading-relaxed">
           Passionnée par le Front-End et les interfaces interactives, 
           avec un intérêt particulier pour l'accessibilité et la performance web.
         </p>

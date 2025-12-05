@@ -1,58 +1,119 @@
 import React, { useState } from "react";
-import './projects.css';
 
 const ProjectCard = ({ project }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
-
   return (
-    <div>
-      {/* Carte du projet */}
-      <div className="project-card" onClick={openModal}>
-        <img src={project.image} alt={project.title} className="project-card-image" />
-        <div className="project-overlay">
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          <div className="tech-badges">
-            {project.technologies.map(tech => (
-              <span key={tech} className="badge">{tech}</span>
+    <>
+      {/* Card */}
+      <div
+        onClick={() => setModalOpen(true)}
+        className="
+          relative cursor-pointer rounded-xl overflow-hidden 
+          shadow-lg bg-neutral-900 
+          hover:scale-[1.02] transition-transform
+        "
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-56 object-cover"
+        />
+
+        {/* Overlay */}
+        <div className="
+          absolute bottom-0 left-0 right-0 
+          bg-black/60 hover:bg-black/70 transition 
+          p-4 text-white
+        ">
+          <h3 className="text-lg font-bold">{project.title}</h3>
+          <p className="text-sm opacity-90">{project.description}</p>
+
+          <div className="flex flex-wrap gap-2 mt-3">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-1 bg-orange-600 text-xs rounded-md"
+              >
+                {tech}
+              </span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Modale */}
+      {/* Modal */}
       {modalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            {/* Bouton fermer */}
-            <button onClick={closeModal} className="modal-close">✖</button>
+        <div
+          className="
+            fixed inset-0 bg-black/70 flex items-center justify-center z-50
+          "
+          onClick={() => setModalOpen(false)}
+        >
+          <div
+            className="
+              bg-neutral-900 text-white rounded-xl p-6 md:p-10 
+              max-w-xl w-[90%] overflow-y-auto max-h-[90vh]
+            "
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setModalOpen(false)}
+              className="absolute top-4 right-4 text-white text-xl"
+            >
+              ×
+            </button>
 
-            {/* Titre centré */}
-            <h2 className="modal-title">{project.title}</h2>
+            <h2 className="text-2xl font-bold mb-4">{project.title}</h2>
 
-            {/* Contenu du projet */}
-            <div className="modal-body">
-              <p><strong>Description :</strong> {project.description}</p>
-              <p><strong>Contexte :</strong> {project.contexte}</p>
-              <p><strong>Objectifs :</strong> {project.objectifs}</p>
-              <p><strong>Stack :</strong> {project.stack}</p>
-              <p><strong>Compétences :</strong> {project.competences}</p>
-              <p><strong>Résultats :</strong> {project.resultats}</p>
+            <div className="space-y-4 text-left">
+              <div>
+                <h3 className="text-orange-500 font-semibold uppercase text-sm">
+                  Description
+                </h3>
+                <p className="text-sm opacity-90">{project.description}</p>
+              </div>
 
-              {/* Badges technologies */}
-              <div className="tech-badges">
-                {project.technologies.map(tech => (
-                  <span key={tech} className="badge">{tech}</span>
-                ))}
+              <div>
+                <h3 className="text-orange-500 font-semibold uppercase text-sm">
+                  Contexte
+                </h3>
+                <p className="text-sm opacity-90">{project.contexte}</p>
+              </div>
+
+              <div>
+                <h3 className="text-orange-500 font-semibold uppercase text-sm">
+                  Objectifs
+                </h3>
+                <p className="text-sm opacity-90">{project.objectifs}</p>
+              </div>
+
+              <div>
+                <h3 className="text-orange-500 font-semibold uppercase text-sm">
+                  Stack
+                </h3>
+                <p className="text-sm opacity-90">{project.stack}</p>
+              </div>
+
+              <div>
+                <h3 className="text-orange-500 font-semibold uppercase text-sm">
+                  Compétences
+                </h3>
+                <p className="text-sm opacity-90">{project.competences}</p>
+              </div>
+
+              <div>
+                <h3 className="text-orange-500 font-semibold uppercase text-sm">
+                  Résultats
+                </h3>
+                <p className="text-sm opacity-90">{project.resultats}</p>
               </div>
             </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
