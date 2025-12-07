@@ -1,0 +1,103 @@
+/* ----------------- Carte projet ----------------- */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlay texte sur la carte */
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 15px;
+  transition: all 0.3s;
+  align-items: center;     /* centre verticalement le contenu */
+  justify-content: center; /* centre horizontalement le contenu */
+  padding: 20px;           /* espace interne pour que le texte ne colle pas */
+}
+
+.project-card:hover .project-overlay {
+  background: rgba(43, 42, 42, 0.75);
+}
+
+.modal-content {
+  background: #2c2b2b;
+  color: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* espace entre les sections */
+  position: relative;
+  text-align: center; /* tout centré */
+}
+
+/* Titre principal du projet */
+.modal-content h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+/* Sections internes : Contexte, Objectifs, etc. */
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* espace entre titre et texte */
+  margin-bottom: 20px;
+}
+
+/* Titres des sections en orange */
+.modal-section h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #ff8000; /* orange primaire */
+}
+
+/* Texte de chaque section */
+.modal-section p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Croix de fermeture */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem; /* plus petit */
+  cursor: pointer;
+  color: #ffffff; /* blanc */
+  transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+}
+

@@ -37,7 +37,7 @@ const About = () => {
 
           {/* Conclusion */}
           <p className="text-sm sm:text-base md:text-lg text-primary font-semibold leading-relaxed text-center">
-            Mon objectif est d'intégrer une équipe produit innovante où je pourrai continuer à développer mes compétences 
+            Mon objectif est d'intégrer une équipe innovante où je pourrai continuer à développer mes compétences 
             en Front-End et Back-End, et contribuer à des projets web performants et accessibles.
           </p>
         </div>
