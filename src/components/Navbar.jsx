@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/button";
-import logo from '../assets/logo_sm.png';
+import logo from '../assets/logo_sm.webp';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

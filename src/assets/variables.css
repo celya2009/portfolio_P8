@@ -1,0 +1,13 @@
+:root {
+  --background: #464444;
+  --foreground: #ffffff;
+  --card: #2a2a2a;
+  --card-foreground: #ffffff;
+  --header: #151515;
+  --footer: #151515;
+  --primary: #D97706;
+  --primary-dark: #b26500;
+  --secondary: #4B5563;
+  --muted: #9CA3AF;
+}
+

@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 
 // Logos des compétences techniques
-import htmlLogo from "@/assets/logos/html5.svg";
-import cssLogo from "@/assets/logos/css.svg";
-import jsLogo from "@/assets/logos/javascript.svg";
-import reactLogo from "@/assets/logos/react.svg";
-import nodeLogo from "@/assets/logos/nodejs.svg";
-import mongoLogo from "@/assets/logos/mongodb.svg";
-import sassLogo from "@/assets/logos/sass.svg";
-import githubLogo from "@/assets/logos/github.svg";
-import figmaLogo from "@/assets/logos/figma.svg";
-import tailwindLogo from "@/assets/logos/tailwindcss.svg";
+import htmlLogo from "@/assets/logos/html5.webp";
+import cssLogo from "@/assets/logos/css.webp";
+import jsLogo from "@/assets/logos/javascript.webp";
+import reactLogo from "@/assets/logos/react.webp";
+import nodeLogo from "@/assets/logos/nodejs.webp";
+import mongoLogo from "@/assets/logos/mongodb.webp";
+import sassLogo from "@/assets/logos/sass.webp";
+import githubLogo from "@/assets/logos/github.webp";
+import figmaLogo from "@/assets/logos/figma.webp";
+import tailwindLogo from "@/assets/logos/tailwindcss.webp";
 
 // Icônes PNG soft skills
-import communication from "@/assets/icones/communication.png";
-import travailEquipe from "@/assets/icones/travaildequipe.png";
-import creativite from "@/assets/icones/creativite.png";
-import adaptabilite from "@/assets/icones/adaptabilité.png";
-import gestionProblemes from "@/assets/icones/gestiondeprobleme.png";
-import gestionProjet from "@/assets/icones/gestiondeprojet.png";
+import communication from "@/assets/icones/communication.webp";
+import travailEquipe from "@/assets/icones/travaildequipe.webp";
+import creativite from "@/assets/icones/creativite.webp";
+import adaptabilite from "@/assets/icones/adaptabilité.webp";
+import gestionProblemes from "@/assets/icones/gestiondeprobleme.webp";
+import gestionProjet from "@/assets/icones/gestiondeprojet.webp";
 
 const technicalSkills = [
   { name: "HTML5", logo: htmlLogo, description: "Intégration de contenu conforme à une maquette, structuration sémantique.", level: "Confirmé" },
@@ -78,53 +78,50 @@ const Skills = () => {
     }
   }, [modalOpen]);
 
+  
   return (
+    
     <section id="skills" className="py-12 md:py-20 px-4 bg-background min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 text-center">
-          Compétences
-        </h2>
-
+         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center uppercase">
+      Compétences
+    </h2>
+      <div className="max-w-4xl mx-auto rounded-2xl p-4 md:p-4 shadow-md bg-[#313030]">
         {/* Compétences Techniques */}
-        <div className="rounded-2xl p-4 mb-8 shadow-md bg-[#313030]">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
-            TECHNIQUES
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
-            {technicalSkills.map((skill) => (
-              <div
-                key={skill.name}
-                className="flex flex-col items-center gap-1 cursor-pointer"
-                onClick={() => openModal(skill.name)}
-              >
-                <img src={skill.logo} alt={skill.name} className="w-10 h-10" />
-                <span className="text-sm md:text-base font-semibold text-white text-center">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
-          </div>
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
+          COMPÉTENCES TECHNIQUES
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center mb-12">
+          {technicalSkills.map((skill) => (
+            <div
+              key={skill.name}
+              className="flex flex-col items-center gap-1 cursor-pointer"
+              onClick={() => openModal(skill.name)}
+            >
+              <img src={skill.logo} alt={skill.name} className="w-8 h-8" />
+              <span className="text-sm md:text-base font-semibold text-white text-center">
+                {skill.name}
+              </span>
+            </div>
+          ))}
         </div>
 
         {/* Compétences Humaines */}
-        <div className="rounded-2xl p-4 shadow-md bg-[#313030]">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-center">
-            HUMAINES
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 justify-items-center">
-            {softSkills.map((skill) => (
-              <div key={skill.name} className="flex flex-col items-center gap-1">
-                <img 
-                  src={skill.icon} 
-                  alt={skill.name} 
-                  className="w-10 h-10"
-                />
-                <span className="text-sm md:text-base font-semibold text-white text-center">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
-          </div>
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
+          COMPÉTENCES HUMAINES
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 justify-items-center">
+          {softSkills.map((skill) => (
+            <div key={skill.name} className="flex flex-col items-center gap-1">
+              <img 
+                src={skill.icon} 
+                alt={skill.name} 
+                className="w-10 h-10"
+              />
+              <span className="text-sm md:text-base font-semibold text-white text-center">
+                {skill.name}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 

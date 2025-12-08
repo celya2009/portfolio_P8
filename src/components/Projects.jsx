@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import './projects.css';
-import ProjectCard from './projectcard';
+import React, { useState } from "react";
+import ProjectCard from "./ProjectCard";
+import "./projects.css";
 
 // Images des projets
-import bookiImg from '../assets/projet-booki.png';
-import kasaImg from '../assets/projet-kasa.png';
-import grimoireImg from '../assets/projet-mon-vieux-grimoire.png';
+import bookiImg from "../assets/projet-booki.webp";
+import kasaImg from "../assets/projet-kasa.webp";
+import grimoireImg from "../assets/projet-mon-vieux-grimoire.webp";
 
 const projects = [
   {
@@ -18,7 +18,8 @@ const projects = [
     objectifs: "Intégrer le contenu conformément à la maquette et rendre le site responsive sur tous les supports.",
     stack: "HTML5, CSS3, Figma",
     competences: "Intégration HTML/CSS, responsive design, utilisation de Git pour le versioning",
-    resultats: "Site Booki fonctionnel et responsive, conforme à la maquette."
+    resultats: "Site Booki fonctionnel et responsive, conforme à la maquette.",
+    perspectives: "Améliorer la navigation mobile et ajouter des animations pour enrichir l’expérience utilisateur."
   },
   {
     title: "KASA",
@@ -30,7 +31,8 @@ const projects = [
     objectifs: "Développer des composants réutilisables et configurer la navigation multi-pages avec React Router.",
     stack: "React, React Router, CSS3, Sass",
     competences: "Création de composants React, navigation React Router, stylisation avec CSS/Sass, débogage avec DevTools",
-    resultats: "Interface Kasa fonctionnelle avec navigation fluide entre les pages."
+    resultats: "Interface Kasa fonctionnelle avec navigation fluide entre les pages.",
+    perspectives: "Ajouter des filtres de recherche avancés et optimiser les performances pour mobile."
   },
   {
     title: "MON VIEUX GRIMOIRE",
@@ -42,41 +44,38 @@ const projects = [
     objectifs: "Implémenter un serveur Node.js avec CRUD sécurisé et authentification utilisateur.",
     stack: "Node.js, Express, MongoDB",
     competences: "Back-end, API REST, manipulation de la base de données, sécurité et authentification",
-    resultats: "Serveur fonctionnel avec opérations CRUD et authentification, base de données sécurisée."
+    resultats: "Serveur fonctionnel avec opérations CRUD et authentification, base de données sécurisée.",
+    perspectives: "Mettre en place des notifications pour les utilisateurs et améliorer la documentation API."
   }
 ];
 
-const Project = () => {
+const Projects = () => {
   const [filter, setFilter] = useState("Tous");
   const categories = ["Tous", "Frontend", "React", "Backend"];
   const filteredProjects = filter === "Tous" ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <section id="projects" className="py-12 md:py-20 px-4">
+    <section id="projects" className="py-12 md:py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">Projets</h2>
 
         {/* Filtres */}
         <div className="flex flex-wrap gap-2 justify-center mb-8 md:mb-12">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-              className={`
-                px-5 py-2 rounded-full font-medium transition-colors duration-200 border-2
-                bg-primary border-primary text-white
-                hover:bg-[#b26500] hover:border-[#b26500]
-              `}
-            >
-              {category}
-            </button>
+  {categories.map(category => (
+    <button
+      key={category}
+      onClick={() => setFilter(category)}
+      className="px-5 py-2 rounded-full font-medium transition-colors duration-200 border-2 border-primary bg-primary text-white hover:bg-primary-dark"
+    >
+      {category}
+    </button>
           ))}
         </div>
 
         {/* Grille des projets */}
         <div className="projects-grid">
-          {filteredProjects.map((projectItem) => (
-            <ProjectCard key={projectItem.title} project={projectItem} />
+          {filteredProjects.map(project => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
       </div>
@@ -84,4 +83,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default Projects;

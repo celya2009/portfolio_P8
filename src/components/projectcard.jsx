@@ -48,34 +48,40 @@ const ProjectCard = ({ project }) => {
             <div className="modal-body">
 
               <div className="modal-section">
-                <h3>Description</h3>
+                <h3>DESCRIPTION</h3>
                 <p>{project.description}</p>
               </div>
 
               <div className="modal-section">
-                <h3>Contexte</h3>
+                <h3>CONTEXTE</h3>
                 <p>{project.contexte}</p>
               </div>
 
               <div className="modal-section">
-                <h3>Objectifs</h3>
+                <h3>OBJECTIFS</h3>
                 <p>{project.objectifs}</p>
               </div>
 
               <div className="modal-section">
-                <h3>Stack</h3>
+                <h3>STACK</h3>
                 <p>{project.stack}</p>
               </div>
 
               <div className="modal-section">
-                <h3>Compétences</h3>
+                <h3>COMPETENCES</h3>
                 <p>{project.competences}</p>
               </div>
 
               <div className="modal-section">
-                <h3>Résultats</h3>
+                <h3>RESULTATS</h3>
                 <p>{project.resultats}</p>
               </div>
+
+              <div className="modal-section">
+                <h3>PERSPECTIVE D'AMELIORATION</h3>
+                <p>{project.resultats}</p>
+              </div>
+
 
               
             </div>

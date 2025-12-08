@@ -2,9 +2,9 @@ import React from "react";
 
 const About = () => {
   return (
-    <section id="about" className="py-8 md:py-20 px-4 bg-background">
+    <section id="about" aria-label="À propos de Malika Salhi" className="py-8 md:py-20 px-4 bg-background">
       <div className="max-w-4xl mx-auto">
-        {/* Titre */}
+        {/* Titre principal */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
           À propos
         </h2>

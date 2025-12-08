@@ -1,3 +1,6 @@
+@import "@/assets/variables.css";
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

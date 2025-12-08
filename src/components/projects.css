@@ -59,6 +59,7 @@
 .project-card:hover .project-overlay {
   opacity: 1;
   transform: translateY(-5px); /* effet survol légèrement "décollé" */
+
 }
 
 .project-overlay h3 {
@@ -81,13 +82,14 @@
 }
 
 .project-overlay .badge {
-  background-color: rgba(255, 255, 255, 0.2); /* semi-transparent */
-  color: #fff;
+  background-color: #D97706; /* orange primaire */
+  color: #fff;               /* texte blanc */
   padding: 3px 8px;
   border-radius: 5px;
   font-size: 0.75rem;
   font-weight: 500;
 }
+
 
 /* Modale texte seulement */
 .modal-overlay {

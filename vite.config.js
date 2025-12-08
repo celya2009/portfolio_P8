@@ -14,6 +14,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
+   build: {
+    target: "esnext",
+    minify: "esbuild", // minification JS
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // permet de mieux scinder le bundle si besoin
+      },
+      },
+  },
 });
 
 

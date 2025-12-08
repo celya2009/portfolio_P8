@@ -14,7 +14,7 @@ const Contact = () => {
       title: "Message envoyé !",
       description: "Je vous répondrai dans les plus brefs délais.",
     });
-    setMessage(""); // vide le champ après envoi
+    setMessage("");
   };
 
   return (
@@ -32,13 +32,14 @@ const Contact = () => {
                 Restons en contact
               </h3>
               <p className="text-muted-foreground mb-8">
-                N'hésitez pas à me contacter pour discuter de vos projets ou simplement pour échanger !
+                N'hésitez pas à me contacter pour discuter de vos projets web, poser des questions sur mon portfolio ou simplement échanger sur le développement Full Stack.
               </p>
 
               <div className="space-y-4">
                 <a
                   href="mailto:sousstizni@hotmail.fr"
                   className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                  aria-label="Envoyer un email"
                 >
                   <Mail className="text-primary" size={24} />
                   <span>sousstizni@hotmail.fr</span>
@@ -48,6 +49,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                  aria-label="Lien vers GitHub"
                 >
                   <Github className="text-primary" size={24} />
                   <span>github.com/celya2009/portfolio</span>
@@ -58,29 +60,42 @@ const Contact = () => {
 
           {/* Formulaire */}
           <div className="bg-card border border-border rounded-lg p-4 sm:p-6 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                placeholder="Votre nom"
-                required
-                className="bg-background border-border text-foreground"
-              />
-              <Input
-                type="email"
-                placeholder="Votre email"
-                required
-                className="bg-background border-border text-foreground"
-              />
+            <form onSubmit={handleSubmit} className="space-y-4" aria-labelledby="contact-form-title">
+              <h3 id="contact-form-title" className="sr-only">Formulaire de contact</h3>
 
-              {/* Champ texte multi-lignes intégré directement */}
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Votre message"
-                rows={5}
-                required
-                aria-label="Votre message"
-                className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
-              />
+              <div className="flex flex-col gap-2">
+                <label htmlFor="name" className="sr-only">Nom</label>
+                <Input
+                  id="name"
+                  placeholder="Votre nom"
+                  required
+                  className="bg-background border-border text-foreground"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="email" className="sr-only">Email</label>
+                <Input
+                  type="email"
+                  id="email"
+                  placeholder="Votre email"
+                  required
+                  className="bg-background border-border text-foreground"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="sr-only">Message</label>
+                <textarea
+                  id="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Votre message"
+                  rows={5}
+                  required
+                  className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                />
+              </div>
 
               <Button
                 type="submit"
