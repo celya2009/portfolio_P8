@@ -1,0 +1,8 @@
+# robots.txt pour un portfolio
+
+User-agent: *
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /src/
+
+

@@ -1,6 +1,21 @@
 import { Button } from "@/components/button";
-import { ArrowDown } from "lucide-react";
 import profildeveloppeur from "@/assets/profil-developpeur.webp";
+
+// Composant ArrowDown en SVG
+const ArrowDown = ({ className = "", size = 32 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="currentColor"
+    width={size}
+    height={size}
+    className={className}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+);
 
 const Hero = () => {
   const scrollTo = (id) => {
@@ -10,13 +25,16 @@ const Hero = () => {
   return (
     <section
       aria-label="Section d'accueil"
-      className="relative h-[600px] sm:h-[700px] md:h-screen w-full flex flex-col"
-      style={{
-        backgroundImage: `url(${profildeveloppeur})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative h-[600px] sm:h-[700px] md:h-screen w-full flex flex-col overflow-hidden"
     >
+      {/* Image hero lazy */}
+      <img
+        src={profildeveloppeur}
+        alt="Profil développeur"
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+
       {/* Overlay sombre */}
       <div className="absolute inset-0 bg-black/40"></div>
 

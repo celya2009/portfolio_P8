@@ -1,19 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
-import { Github, Mail } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [message, setMessage] = React.useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast({
-      title: "Message envoyé !",
-      description: "Je vous répondrai dans les plus brefs délais.",
-    });
+    alert("Message envoyé !");
     setMessage("");
   };
 
@@ -32,7 +26,7 @@ const Contact = () => {
                 Restons en contact
               </h3>
               <p className="text-muted-foreground mb-8">
-                N'hésitez pas à me contacter pour discuter de vos projets web, poser des questions sur mon portfolio ou simplement échanger sur le développement Full Stack.
+                N'hésitez pas à me contacter pour discuter de vos projets web.
               </p>
 
               <div className="space-y-4">
@@ -41,9 +35,18 @@ const Contact = () => {
                   className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
                   aria-label="Envoyer un email"
                 >
-                  <Mail className="text-primary" size={24} />
+                  {/* SVG Mail simplifié */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-6 h-6 text-primary"
+                  >
+                    <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm2 0v2l8 5 8-5V4H4zm16 16V8l-8 5-8-5v12h16z"/>
+                  </svg>
                   <span>sousstizni@hotmail.fr</span>
                 </a>
+
                 <a
                   href="https://github.com/celya2009/portfolio"
                   target="_blank"
@@ -51,7 +54,15 @@ const Contact = () => {
                   className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
                   aria-label="Lien vers GitHub"
                 >
-                  <Github className="text-primary" size={24} />
+                  {/* SVG GitHub */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-6 h-6 text-primary"
+                  >
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.933 0-1.31.467-2.382 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.803 5.628-5.475 5.923.43.37.814 1.1.814 2.222v3.293c0 .319.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
                   <span>github.com/celya2009/portfolio</span>
                 </a>
               </div>

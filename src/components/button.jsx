@@ -1,7 +1,7 @@
 import React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva } from "class-variance-authority";
-import { cn } from "@/lib/utils"; 
+import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority"; // <-- il manquait ça
+import { Slot } from "@radix-ui/react-slot";    // <-- nécessaire pour asChild
 
 // Définition des variantes du bouton
 const buttonVariants = cva(
@@ -30,7 +30,7 @@ const buttonVariants = cva(
   }
 );
 
-// Composant Button 
+// Composant Button
 export const Button = ({ className, variant, size, asChild = false, ...props }) => {
   const Comp = asChild ? Slot : "button";
   return <Comp className={cn(buttonVariants({ variant, size }), className)} {...props} />;
@@ -38,4 +38,3 @@ export const Button = ({ className, variant, size, asChild = false, ...props }) 
 
 // Export des variantes si besoin
 export { buttonVariants };
-

@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.{js,jsx}"],
-  
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}"
+  ],
   theme: {
     container: {
       center: true,
@@ -10,7 +12,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#D97706", 
+        primary: "#D97706",
         "primary-dark": "#b26500",
         secondary: "#4B5563",
         "secondary-light": "#6B7280",
@@ -28,22 +30,8 @@ module.exports = {
         md: "0.375rem",
         sm: "0.25rem",
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };
 

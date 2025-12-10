@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "./projectcard";
 import "./projects.css";
 
 // Images des projets
@@ -57,23 +57,30 @@ const Projects = () => {
   return (
     <section id="projects" className="py-12 md:py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">Projets</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
+          Projets
+        </h2>
 
         {/* Filtres */}
-        <div className="flex flex-wrap gap-2 justify-center mb-8 md:mb-12">
-  {categories.map(category => (
-    <button
-      key={category}
-      onClick={() => setFilter(category)}
-      className="px-5 py-2 rounded-full font-medium transition-colors duration-200 border-2 border-primary bg-primary text-white hover:bg-primary-dark"
-    >
-      {category}
-    </button>
+        <div className="flex flex-wrap gap-3 justify-center mb-8 md:mb-12">
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setFilter(category)}
+              aria-pressed={filter === category}
+              className={`px-5 py-2 rounded-full font-medium transition-colors duration-200 border-2
+                ${filter === category
+                  ? "bg-primary text-white border-primary"
+                  : "bg-background text-foreground border-primary hover:bg-primary hover:text-white"}`
+              }
+            >
+              {category}
+            </button>
           ))}
         </div>
 
         {/* Grille des projets */}
-        <div className="projects-grid">
+        <div className="projects-grid transition-all duration-300">
           {filteredProjects.map(project => (
             <ProjectCard key={project.title} project={project} />
           ))}

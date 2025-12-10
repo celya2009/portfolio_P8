@@ -11,11 +11,12 @@ const ProjectCard = ({ project }) => {
     <div>
       {/* Carte du projet */}
       <div className="project-card" onClick={openModal}>
-        <img
-          src={project.image}
-          alt={project.title}
-          className="project-card-image"
-        />
+      <img
+       src={project.image}
+       alt={project.title}
+       className="project-card-image"
+       loading="lazy"/>
+
         <div className="project-overlay">
           <h3>{project.title}</h3>
           <p>{project.description}</p>

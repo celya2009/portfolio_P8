@@ -1,29 +1,29 @@
-import Navbar from "@/components/Navbar";
+import React, { Suspense } from "react";
 import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Timeline from "@/components/Timeline";
-import Contact from "@/components/Contact";
+
+// Lazy load pour gros composants
+const Projects = React.lazy(() => import('@/components/projects'));
+const Skills = React.lazy(() => import('@/components/skills'));
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
+      <Hero />
+      <About />
+
+      {/* Suspense pour lazy load */}
+      <Suspense fallback={<div>Chargement des projets...</div>}>
         <Projects />
-        <Timeline />
-        <Contact />
-      </main>
-      <footer className="border-t border-border py-8 text-center text-muted-foreground">
-        <p>© 2025 - Portfolio Développeur. Tous droits réservés.</p>
-      </footer>
-    </div>
+      </Suspense>
+
+      <Suspense fallback={<div>Chargement des compétences...</div>}>
+        <Skills />
+      </Suspense>
+    </>
   );
 };
 
 export default Index;
-
