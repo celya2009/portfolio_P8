@@ -12,7 +12,7 @@ import githubLogo from "@/assets/logos/github.webp";
 import figmaLogo from "@/assets/logos/figma.webp";
 import tailwindLogo from "@/assets/logos/tailwindcss.webp";
 
-// Icônes PNG soft skills
+// Icônes soft skills
 import communication from "@/assets/icones/communication.webp";
 import travailEquipe from "@/assets/icones/travaildequipe.webp";
 import creativite from "@/assets/icones/creativite.webp";
@@ -85,7 +85,7 @@ const Skills = () => {
          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center uppercase">
       Compétences
     </h2>
-      <div className="max-w-4xl mx-auto rounded-2xl p-4 md:p-4 shadow-md bg-[#313030]">
+      <div className="max-w-4xl mx-auto rounded-2xl p-4 md:p-4 shadow-md bg-card-light">
         {/* Compétences Techniques */}
         <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
           COMPÉTENCES TECHNIQUES
@@ -135,7 +135,7 @@ const Skills = () => {
               onClick={closeModal}
             >
               <div
-                className="bg-[#2c2b2b] p-6 md:p-8 rounded-2xl w-full max-w-lg text-center relative"
+                className="bg-card p-6 md:p-8 rounded-2xl w-full max-w-lg text-center relative"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
@@ -152,7 +152,7 @@ const Skills = () => {
                   <span className="text-white font-semibold">Niveau :</span>
                   <div className="bg-gray-700 h-3 rounded-full mt-1">
                     <div
-                      className="bg-[#D97706] h-3 rounded-full transition-all duration-500"
+                      className="bg-primary h-3 rounded-full transition-all duration-500"
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>

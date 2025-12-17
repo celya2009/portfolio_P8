@@ -48,7 +48,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="https://github.com/celya2009/portfolio"
+                  href="https://github.com/celya2009/portfolio_P8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"

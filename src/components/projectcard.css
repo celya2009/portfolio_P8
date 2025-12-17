@@ -1,23 +1,12 @@
-/* ----------------- Grille des projets ----------------- */
-.projects-grid {
-  display: flex;
-  flex-wrap: wrap;           /* permet aux cartes de passer à la ligne */
-  gap: 20px;                 /* espace entre cartes */
-  justify-content: center;   /* centre les cartes */
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* ----------------- Carte projet ----------------- */
 .project-card {
   position: relative;
   width: 100%;               /* prend toute la largeur disponible */
-  max-width: 370px;          /* limite desktop */
-  height: 280px;             /* taille desktop */
-  border-radius: 14px;
+  max-width: none;           /* pas de limite de largeur */
+  height: 350px;             /* hauteur ajustée */
+  border-radius: 8px;
   overflow: hidden;
-  background: #1f1f1f;
+  background:white;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
@@ -32,25 +21,26 @@
 .project-card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* couvre parfaitement */
+  object-fit: contain;
   display: block;
 }
 
 /* Overlay sombre */
 .project-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.75);
-  color: white;
-  padding: 18px;
+  top: 15px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  background: rgba(50, 50, 50, 0.8);
+  color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* vertical */
-  align-items: center;      /* horizontal */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  border-radius: 0 0 14px 14px;
+  border-radius: 8px;
+  padding: 15px;
   opacity: 0;
   transition: opacity 0.3s, transform 0.3s;
   box-sizing: border-box;
@@ -63,106 +53,61 @@
 
 /* Texte overlay */
 .project-overlay h3 {
-  margin: 0 0 6px 0;
-  font-size: 1.1rem;
-  font-weight: 600;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .project-overlay p {
-  margin: 0 0 12px 0;
+  margin: 5px 0 0;
   font-size: 0.9rem;
-  opacity: 0.85;
 }
 
 /* Badges technologies */
-.tech-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-}
-
-.badge {
-  background: #333;
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  box-sizing: border-box;
-}
-
-/* ----------------- Modale ----------------- */
-.modal-overlay {
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:100;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.modal-content {
-   position: relative;   
-  background: #333;
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-sizing: border-box;
-}
-
-.modal-content .tech-badges {
+.project-overlay .tech-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
-.modal-content .badge {
-  background-color: rgb(131, 129, 127);
-  color: #e2d7d7;
+.project-overlay .badge {
+  background-color: #D97706;
+  color: #fff;
   padding: 3px 8px;
   border-radius: 5px;
   font-size: 0.75rem;
   font-weight: 500;
 }
 
-
-.modal-close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+/* ----------------- Modale ----------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
-
 
 .modal-close:hover {
   transform: scale(1.1);
 }
 
-
 .modal-title {
   text-align: center;
-  margin: 0 0 20px 0; 
+  margin: 0 0 20px 0;
   font-size: 1.8rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #f0edea; 
+  color: #f0edea;
 }
 
 .modal-section h3 {
@@ -177,26 +122,46 @@
   margin: 0 0 10px 0;
   font-size: 1rem;
   line-height: 1.5;
-  align-items: center;
+}
+
+/* Boutons filtres */
+.filter-btn {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: #ffa500;
+  color: #fff;
+}
+
+.filter-btn.active {
+  background-color: #D97706;
+  color: #fff;
 }
 
 /* ----------------- Responsives ----------------- */
 @media (max-width: 1024px) {
   .project-card {
-    height: 250px;
+    height: 300px;
   }
 }
 
 @media (max-width: 768px) {
   .project-card {
-    max-width: 100%;
-    height: 220px;
+    height: 250px;
   }
 }
 
 @media (max-width: 480px) {
   .project-card {
-    height: 200px;
+    height: 220px;
   }
 
   .project-overlay h3 {

@@ -1,7 +1,11 @@
 import React, { Suspense } from "react";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
-import About from "@/components/About";
+import Navbar from "@/components/navbar";
+import About from "@/components/about";
+import Timeline from "@/components/timeline";
+import Contact from "@/components/contact";
+import Footer from "@/components/footer";
+
 
 // Lazy load pour gros composants
 const Projects = React.lazy(() => import('@/components/projects'));
@@ -13,6 +17,8 @@ const Index = () => {
       <Navbar />
       <Hero />
       <About />
+      <Timeline />
+      <Contact />
 
       {/* Suspense pour lazy load */}
       <Suspense fallback={<div>Chargement des projets...</div>}>

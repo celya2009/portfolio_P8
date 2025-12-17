@@ -14,17 +14,33 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-
-   build: {
+  build: {
     target: "esnext",
-    minify: "esbuild", // minification JS
+    minify: "esbuild",
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: undefined, // permet de mieux scinder le bundle si besoin
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            // Chaque librairie majeure devient un chunk séparé
+            return id
+              .toString()
+              .split("node_modules/")[1]
+              .split("/")[0]
+              .toString();
+          }
+          // Optionnel : mettre tes gros composants dans un chunk à part
+          if (id.includes("src/components/Projects")) {
+            return "projects";
+          }
+          if (id.includes("src/components/Skills")) {
+            return "skills";
+          }
+          if (id.includes("src/components/Hero")) {
+            return "hero";
+          }
+        },
       },
-      },
+    },
   },
 });
-
-

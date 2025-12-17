@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import "./projectcard.css";
 
 const ProjectCard = ({ project }) => {
@@ -6,6 +7,18 @@ const ProjectCard = ({ project }) => {
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
+    // Bloquer le scroll du body quand la modale est ouverte
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modalOpen]);
 
   return (
     <div>
@@ -31,16 +44,21 @@ const ProjectCard = ({ project }) => {
       </div>
 
       {/* Modale */}
-      {modalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Bouton fermer */}
-            <button onClick={closeModal} className="modal-close">
-              x
-            </button>
+    {modalOpen && (
+  <div className="modal-overlay" onClick={closeModal}>
+    <div
+  className="bg-card-light rounded-lg max-w-2xl w-full p-6 sm:p-8 relative max-h-[80vh] overflow-y-auto"
+  onClick={(e) => e.stopPropagation()}
+>
+
+
+      {/* Bouton fermer */}
+      <button
+        onClick={closeModal}
+        className="absolute top-4 right-4 text-xl font-bold text-white-700 hover:text-gray-900"
+      >
+        ×
+      </button>
 
             {/* Titre centré */}
             <h2 className="modal-title">{project.title}</h2>
@@ -80,11 +98,20 @@ const ProjectCard = ({ project }) => {
 
               <div className="modal-section">
                 <h3>PERSPECTIVE D'AMELIORATION</h3>
-                <p>{project.resultats}</p>
-              </div>
+                <p>{project.perspectives}</p>
+              </div> 
 
-
-              
+                <div className="modal-section">
+  <h3>GITHUB</h3>
+  <a
+    href={project.github}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-primary underline hover:text-primary/80"
+  >
+    Voir le repository GitHub
+  </a>
+</div>
             </div>
           </div>
         </div>

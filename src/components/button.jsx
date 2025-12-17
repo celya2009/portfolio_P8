@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { cva } from "class-variance-authority"; // <-- il manquait ça
+import { cva } from "class-variance-authority"; 
 import { Slot } from "@radix-ui/react-slot";    // <-- nécessaire pour asChild
 
 // Définition des variantes du bouton
