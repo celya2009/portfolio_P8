@@ -78,18 +78,18 @@ const Skills = () => {
     }
   }, [modalOpen]);
 
-  
   return (
-    
-    <section id="skills" className="py-12 md:py-20 px-4 bg-background min-h-screen">
-         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center uppercase">
-      Compétences
-    </h2>
+    <section id="skills" className="py-12 md:py-20 px-4 bg-background">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center uppercase">
+        Compétences
+      </h2>
+
       <div className="max-w-4xl mx-auto rounded-2xl p-4 md:p-4 shadow-md bg-card-light">
         {/* Compétences Techniques */}
         <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
           COMPÉTENCES TECHNIQUES
         </h3>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center mb-12">
           {technicalSkills.map((skill) => (
             <div
@@ -109,14 +109,11 @@ const Skills = () => {
         <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
           COMPÉTENCES HUMAINES
         </h3>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 justify-items-center">
           {softSkills.map((skill) => (
             <div key={skill.name} className="flex flex-col items-center gap-1">
-              <img 
-                src={skill.icon} 
-                alt={skill.name} 
-                className="w-10 h-10"
-              />
+              <img src={skill.icon} alt={skill.name} className="w-10 h-10" />
               <span className="text-sm md:text-base font-semibold text-white text-center">
                 {skill.name}
               </span>

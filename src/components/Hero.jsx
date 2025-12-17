@@ -1,5 +1,5 @@
 import { Button } from "@/components/button";
-import profildeveloppeur from "@/assets/profil-developpeur.webp";
+import heroImage from "@/assets/hero.webp";
 
 // Composant ArrowDown en SVG
 const ArrowDown = ({ className = "", size = 32 }) => (
@@ -25,13 +25,13 @@ const Hero = () => {
   return (
     <section
       aria-label="Section d'accueil"
-      className="relative h-[600px] sm:h-[700px] md:h-screen w-full flex flex-col overflow-hidden"
+      className="relative w-full flex flex-col overflow-hidden h-screen"
     >
-      {/* Image hero lazy */}
+      {/* Image hero */}
       <img
-        src={profildeveloppeur}
+        src={heroImage}
         alt="Profil développeur"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-top"
         loading="lazy"
       />
 
@@ -39,62 +39,42 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Contenu centré */}
-<div 
-  className="absolute z-10 text-center"
-  style={{ 
-    top: "50%", 
-    left: "45%", 
-    width: "35%", 
-    transform: "translate(-50%, -50%)" 
-  }}
->
-  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
-    Malika Salhi
-  </h1>
-  <h2 className="text-xl sm:text-2xl md:text-3xl text-white/90 font-semibold mt-2">
-    Développeuse Full Stack Junior
-  </h2>
-  <p className="text-base sm:text-lg md:text-xl text-white/80 mt-4 leading-relaxed">
-    Passionnée par le Front-End et les interfaces interactives,
-    avec un intérêt particulier pour l'accessibilité et la performance web.
-  </p>
-</div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 sm:w-3/4 md:w-1/2 text-center z-10">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white">
+          Malika Salhi
+        </h1>
+        <h2 className="text-lg sm:text-2xl md:text-3xl text-white/90 font-semibold mt-2">
+          Développeuse Full Stack Junior
+        </h2>
+        <p className="text-sm sm:text-base md:text-xl text-white/80 mt-4 leading-snug sm:leading-relaxed">
+          Passionnée par le Front-End et les interfaces interactives, avec un
+          intérêt particulier pour l'accessibilité et la performance web.
+        </p>
+      </div>
 
+      {/* Conteneur boutons + flèche */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 z-10
+                      bottom-6 sm:bottom-10 md:bottom-13">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-10">
+          <Button
+            onClick={() => scrollTo("contact")}
+            size="md"
+            className="w-32 sm:w-36 md:w-48 px-4 sm:px-6 md:px-8 bg-primary border-primary text-white hover:bg-primary/90"
+          >
+            Me contacter
+          </Button>
 
-     {/* Boutons */}
-<div
-  className="absolute left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-14 justify-center items-center px-4"
-  style={{ bottom: "calc(24px)" }} 
->
-  <Button
-    onClick={() => scrollTo("contact")}
-    size="lg"
-    className="px-8 w-48 bg-primary border-primary text-white hover:bg-primary/90"
-  >
-    Me contacter
-  </Button>
+          <Button
+            onClick={() => scrollTo("projects")}
+            size="md"
+            className="w-32 sm:w-36 md:w-48 px-4 sm:px-6 md:px-8 bg-primary border-primary text-white hover:bg-primary/90"
+          >
+            Voir mes projets
+          </Button>
+        </div>
 
-  <Button
-    onClick={() => scrollTo("projects")}
-    size="lg"
-    className="px-8 w-48 bg-primary border-primary text-white hover:bg-primary/90"
-  >
-    Voir mes projets
-  </Button>
-</div>
-
-{/* Flèche */}
-<div
-  className="absolute animate-bounce"
-  style={{
-    bottom: "5px",       // plus bas
-    left: "49%",         // un peu à gauche par rapport au centre
-    transform: "translateX(-50%)"
-  }}
->
-  <ArrowDown className="text-white/80" size={32} />
-</div>
-      
+        <ArrowDown className="text-white/80 animate-bounce mt-2" size={32} />
+      </div>
     </section>
   );
 };

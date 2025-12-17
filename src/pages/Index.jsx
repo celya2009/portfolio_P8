@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import Hero from "@/components/Hero";
+import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import About from "@/components/about";
 import Timeline from "@/components/timeline";
@@ -17,17 +17,20 @@ const Index = () => {
       <Navbar />
       <Hero />
       <About />
-      <Timeline />
-      <Contact />
-
+      
       {/* Suspense pour lazy load */}
+      <Suspense fallback={<div>Chargement des compétences...</div>}>
+        <Skills />
+      </Suspense>
+
       <Suspense fallback={<div>Chargement des projets...</div>}>
         <Projects />
       </Suspense>
 
-      <Suspense fallback={<div>Chargement des compétences...</div>}>
-        <Skills />
-      </Suspense>
+      <Timeline />
+      <Contact />
+      <Footer/> 
+
     </>
   );
 };
