@@ -1,67 +1,35 @@
-@import "@/assets/variables.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ===============================
+   Sections – Layout vertical stable
+   =============================== */
 
-/* ===== Variables de design system ===== */
-@layer base {
-  :root {
-    /* Couleurs principales */
-    --background: 220 15% 15%;
-    --foreground: 0 0% 100%;
-    --card: 220 15% 18%;
-    --card-foreground: 0 0% 100%;
-    --popover: 220 15% 18%;
-    --popover-foreground: 0 0% 100%;
-    --header: 220 15% 18%;
+.section {
+  min-height: 100vh;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
+}
 
-    --primary: 30 100% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 45 100% 55%;
-    --secondary-foreground: 220 15% 15%;
-    --muted: 220 15% 25%;
-    --muted-foreground: 220 10% 70%;
-    --accent: 30 100% 60%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+.section-content {
+  width: 100%;
+}
 
-    /* Bordures, input, ring */
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 30 100% 60%;
+/* Textes éditoriaux hors card */
+.section-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
 
-    /* Rayons */
-    --radius: 0.75rem;
-
-  }
-
-  /* ===== Styles globaux ===== */
-* {
-    @apply border-border;
-  }
-
-
-  body {
-    @apply bg-background text-foreground;
-  }
-
-  header {
-    @apply bg-header text-foreground;
-  }
-
-  footer {
-    @apply bg-footer text-foreground;
+/* Mobile large */
+@media (min-width: 480px) {
+  .section-text {
+    font-size: 1rem;
   }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Tablette */
+@media (min-width: 768px) {
+  .section-text {
+    font-size: 1.05rem;
+  }
 }
-
-.animate-fadeIn {
-  animation: fadeIn 0.5s forwards;
-}
-
-

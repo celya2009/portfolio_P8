@@ -6,31 +6,32 @@ import Timeline from "@/components/timeline";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
+const Projects = React.lazy(() => import("@/components/projects"));
+const Skills = React.lazy(() => import("@/components/skills"));
 
-// Lazy load pour gros composants
-const Projects = React.lazy(() => import('@/components/projects'));
-const Skills = React.lazy(() => import('@/components/skills'));
-
-const Index = () => {
+const Index = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      
-      {/* Suspense pour lazy load */}
-      <Suspense fallback={<div>Chargement des compétences...</div>}>
-        <Skills />
-      </Suspense>
+      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
 
-      <Suspense fallback={<div>Chargement des projets...</div>}>
-        <Projects />
-      </Suspense>
+      <main className="flex flex-col overflow-x-hidden">
+        {/* Toutes les sections suivent le même flux */}
+        <Hero />
+        <About />
 
-      <Timeline />
-      <Contact />
-      <Footer/> 
+        <Suspense fallback={<div className="py-20 text-center">Chargement des compétences...</div>}>
+          <Skills />
+        </Suspense>
 
+        <Suspense fallback={<div className="py-20 text-center">Chargement des projets...</div>}>
+          <Projects />
+        </Suspense>
+
+        <Timeline />
+        <Contact />
+      </main>
+
+      <Footer />
     </>
   );
 };

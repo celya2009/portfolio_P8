@@ -79,7 +79,7 @@ const Skills = () => {
   }, [modalOpen]);
 
   return (
-    <section id="skills" className="py-12 md:py-20 px-4 bg-background">
+    <section id="skills" className="scroll-mt-16 pt-[6rem] pb-[7rem] md:py-12">
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center uppercase">
         Compétences
       </h2>

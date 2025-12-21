@@ -89,7 +89,7 @@ const Projects = () => {
   const filteredProjects = filter === "Tous" ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <section id="projects" className="py-12 md:py-20 px-4 bg-background">
+    <section id="projects" className="py-12 md:py-20 px-4 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
           Projets

@@ -1,7 +1,6 @@
 import { Button } from "@/components/button";
 import heroImage from "@/assets/hero.webp";
 
-// Composant ArrowDown en SVG
 const ArrowDown = ({ className = "", size = 32 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -24,56 +23,53 @@ const Hero = () => {
 
   return (
     <section
+      id="hero"
       aria-label="Section d'accueil"
-      className="relative w-full flex flex-col overflow-hidden h-screen"
+      className="relative min-h-screen flex flex-col justify-center items-center pt-16 px-6 sm:px-8 overflow-hidden"
     >
-      {/* Image hero */}
-      <img
-        src={heroImage}
-        alt="Profil développeur"
-        className="absolute inset-0 w-full h-full object-cover object-top"
-        loading="lazy"
-      />
-
-      {/* Overlay sombre */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Fond image + overlay */}
+      <div className="absolute inset-0 -z-20 overflow-hidden">
+        <img
+          src={heroImage}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-top"
+          loading="lazy"
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/50 -z-10" />
 
       {/* Contenu centré */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 sm:w-3/4 md:w-1/2 text-center z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white">
+      <div className="w-full max-w-4xl text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl">
           Malika Salhi
         </h1>
-        <h2 className="text-lg sm:text-2xl md:text-3xl text-white/90 font-semibold mt-2">
+        <h2 className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/90 font-semibold drop-shadow-md">
           Développeuse Full Stack Junior
         </h2>
-        <p className="text-sm sm:text-base md:text-xl text-white/80 mt-4 leading-snug sm:leading-relaxed">
-          Passionnée par le Front-End et les interfaces interactives, avec un
-          intérêt particulier pour l'accessibilité et la performance web.
+        <p className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+          Passionnée par le Front-End et les interfaces interactives, avec un intérêt particulier pour l'accessibilité et la performance web.
         </p>
-      </div>
 
-      {/* Conteneur boutons + flèche */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 z-10
-                      bottom-6 sm:bottom-10 md:bottom-13">
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-10">
-          <Button
-            onClick={() => scrollTo("contact")}
-            size="md"
-            className="w-32 sm:w-36 md:w-48 px-4 sm:px-6 md:px-8 bg-primary border-primary text-white hover:bg-primary/90"
-          >
-            Me contacter
-          </Button>
-
-          <Button
-            onClick={() => scrollTo("projects")}
-            size="md"
-            className="w-32 sm:w-36 md:w-48 px-4 sm:px-6 md:px-8 bg-primary border-primary text-white hover:bg-primary/90"
-          >
-            Voir mes projets
-          </Button>
+        <div className="mt-12 flex flex-col items-center gap-12">
+          <div className="flex flex-col sm:flex-row gap-10 sm:gap-16 md:gap-20 justify-center">
+            <Button
+              onClick={() => scrollTo("contact")}
+              size="lg"
+              className="px-8 py-4 text-lg bg-primary text-white hover:bg-primary/90"
+            >
+              Me contacter
+            </Button>
+            <Button
+              onClick={() => scrollTo("projects")}
+              size="lg"
+              className="px-8 py-4 text-lg bg-transparent border-2 border-white text-white hover:bg-white/10"
+            >
+              Voir mes projets
+            </Button>
+          </div>
+          <ArrowDown className="text-white/80 animate-bounce" size={48} />
         </div>
-
-        <ArrowDown className="text-white/80 animate-bounce mt-2" size={32} />
       </div>
     </section>
   );

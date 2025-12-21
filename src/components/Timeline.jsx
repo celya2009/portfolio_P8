@@ -24,7 +24,7 @@ const Timeline = () => {
   const [openModal, setOpenModal] = useState(null);
 
   return (
-    <section id="timeline" className="py-10 md:py-16 px-4 bg-background min-h-screen">
+    <section id="timeline" className="py-12 md:py-20 px-4 scroll-mt-16">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 md:mb-10 text-center">
           Parcours
