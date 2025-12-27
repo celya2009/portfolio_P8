@@ -1,0 +1,66 @@
+/* navbar.css */
+
+/* Navbar globale */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  background-color: #464444ff; /* fond gris foncé, conforme à Tailwind config */
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid #3F3F46; /* border similaire à Tailwind config */
+}
+
+/* Container interne pour centrer et espacer */
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+/* Logo + texte */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Menu desktop */
+.navbar-menu-desktop {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Hamburger mobile */
+.navbar-menu-toggle {
+  display: none; /* par défaut caché, Tailwind md:hidden s'applique */
+}
+
+/* Mobile menu overlay */
+.navbar-menu-mobile {
+  position: absolute;
+  top: 4rem; /* juste en dessous du navbar */
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #464444ff;
+  border-bottom: 1px solid #3F3F46;
+}
+
+/* Responsive mobile */
+@media (max-width: 767px) {
+  .navbar-menu-desktop {
+    display: none; /* cache le menu desktop sur mobile */
+  }
+  .navbar-menu-toggle {
+    display: block; /* affiche le bouton hamburger sur mobile */
+  }
+}
+

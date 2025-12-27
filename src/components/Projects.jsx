@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import ProjectCard from "./projectcard";
-import { Badge } from "@/components/badge";
+import React, { useState, useEffect } from "react";
+import "./projects.css";
 
 // Images des projets
 import bookiImg from "../assets/projet-booki.webp";
@@ -9,8 +8,7 @@ import grimoireImg from "../assets/projet-mon-vieux-grimoire.webp";
 import sophieBluelImg from "../assets/projet-sophie-bluel.webp";
 import ninaImg from "../assets/projet-nina-carducci.webp";
 
-
-const projects = [
+const projectsData = [
   {
     title: "BOOKI",
     description: "Intégration HTML/CSS à partir d'une maquette Figma, site responsive pour réservation d'hébergements.",
@@ -54,74 +52,178 @@ const projects = [
     github: "https://github.com/celya2009/p6-mon-vieux-grimoire.git"
   },
   {
-  title: "SOPHIE BLUEL",
-  description: "Front-End HTML/CSS/JS avec gestion de formulaires et événements utilisateurs, portfolio d’architecte d’intérieur.",
-  technologies: ["HTML", "CSS", "JavaScript", "Formulaires", "DOM"],
-  category: "Frontend",
-  image: sophieBluelImg,
-  contexte: "Projet Front-End visant à créer un site dynamique avec formulaires interactifs, intégration HTML/CSS à partir d’une maquette Figma, et gestion des événements utilisateur en JavaScript. Réalisé dans le cadre de la formation Développeur Web OpenClassrooms.",
-  objectifs: "Rendre le site dynamique, gérer les événements utilisateurs et les formulaires, manipuler le DOM.",
-  stack: "HTML, CSS, JavaScript",
-  competences: "Front-end, gestion des événements utilisateurs, formulaires interactifs, manipulation du DOM",
-  resultats: "Site dynamique avec formulaire fonctionnel, interaction avec l’utilisateur et contenu mis à jour via JS.",
-  perspectives: "Améliorer le design et ajouter des fonctionnalités avancées comme un mode admin pour gérer les contenus.",
-  github: "https://github.com/celya2009/p3-sophie-bluel.git"
-},
-{
-  title: "NINA CARDUCCI",
-  description: "Audit SEO et optimisation des performances et de l’accessibilité d’un site de photographe.",
-  technologies: ["SEO", "Lighthouse", "Accessibilité", "Performance"],
-  category: "Frontend",
-  image: ninaImg,
-  contexte: "Projet visant à réaliser un audit SEO et d’accessibilité d’un site web, avec analyse des performances et recommandations d’amélioration. Réalisé dans le cadre de la formation Développeur Web OpenClassrooms.",
-  objectifs: "Améliorer SEO, accessibilité et performances du site, rédiger un cahier de tests.",
-  stack: "HTML, CSS, JavaScript",
-  competences: "Optimisation, accessibilité numérique, audit performance, tests et QA",
-  resultats: "Scores Lighthouse significativement améliorés, contenu plus accessible et performant.",
-  perspectives: "Mettre en place un suivi automatisé des performances et SEO, améliorer le design UX/UI.",
-  github: "https://github.com/celya2009/https-github.com-OpenClassrooms-Student-Center-Nina-Carducci-Dev.git"
-}
+    title: "SOPHIE BLUEL",
+    description: "Front-End HTML/CSS/JS avec gestion de formulaires et événements utilisateurs, portfolio d’architecte d’intérieur.",
+    technologies: ["HTML", "CSS", "JavaScript", "Formulaires", "DOM"],
+    category: "Frontend",
+    image: sophieBluelImg,
+    contexte: "Projet Front-End visant à créer un site dynamique avec formulaires interactifs, intégration HTML/CSS à partir d’une maquette Figma, et gestion des événements utilisateur en JavaScript. Réalisé dans le cadre de la formation Développeur Web OpenClassrooms.",
+    objectifs: "Rendre le site dynamique, gérer les événements utilisateurs et les formulaires, manipuler le DOM.",
+    stack: "HTML, CSS, JavaScript",
+    competences: "Front-end, gestion des événements utilisateurs, formulaires interactifs, manipulation du DOM",
+    resultats: "Site dynamique avec formulaire fonctionnel, interaction avec l’utilisateur et contenu mis à jour via JS.",
+    perspectives: "Améliorer le design et ajouter des fonctionnalités avancées comme un mode admin pour gérer les contenus.",
+    github: "https://github.com/celya2009/p3-sophie-bluel.git"
+  },
+  {
+    title: "NINA CARDUCCI",
+    description: "Audit SEO et optimisation des performances et de l’accessibilité d’un site de photographe.",
+    technologies: ["SEO", "Lighthouse", "Accessibilité", "Performance"],
+    category: "Frontend",
+    image: ninaImg,
+    contexte: "Projet visant à réaliser un audit SEO et d’accessibilité d’un site web, avec analyse des performances et recommandations d’amélioration. Réalisé dans le cadre de la formation Développeur Web OpenClassrooms.",
+    objectifs: "Améliorer SEO, accessibilité et performances du site, rédiger un cahier de tests.",
+    stack: "HTML, CSS, JavaScript",
+    competences: "Optimisation, accessibilité numérique, audit performance, tests et QA",
+    resultats: "Scores Lighthouse significativement améliorés, contenu plus accessible et performant.",
+    perspectives: "Mettre en place un suivi automatisé des performances et SEO, améliorer le design UX/UI.",
+    github: "https://github.com/celya2009/https-github.com-OpenClassrooms-Student-Center-Nina-Carducci-Dev.git"
+  }
 ];
 
 const Projects = () => {
   const [filter, setFilter] = useState("Tous");
   const categories = ["Tous", "Frontend", "React", "Backend"];
-  const filteredProjects = filter === "Tous" ? projects : projects.filter(p => p.category === filter);
+
+  const filteredProjects =
+    filter === "Tous"
+      ? projectsData
+      : projectsData.filter(p => p.category === filter);
+
+  // Composant interne ProjectCard
+  const ProjectCard = ({ project }) => {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    useEffect(() => {
+      document.body.style.overflow = modalOpen ? "hidden" : "auto";
+      return () => {
+        document.body.style.overflow = "auto";
+      };
+    }, [modalOpen]);
+
+    return (
+      <div>
+        {/* Carte du projet */}
+        <div
+          className="project-card"
+          style={{ backgroundColor: "#f5ededff", color: "#ffffff" }}
+          onClick={() => setModalOpen(true)}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            className="project-card-image"
+          />
+
+          <div
+            className="project-overlay"
+            style={{ backgroundColor: "rgba(0,0,0,0.7)", color: "#fff" }}
+          >
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </div>
+        </div>
+
+        {/* Modale */}
+        {modalOpen && (
+          <div className="modal-overlay">
+            <div
+              className="modal-content"
+              style={{ backgroundColor: "#2c2c2c", color: "#ffffff" }}
+            >
+              <button
+                className="modal-close"
+                style={{ color: "#ffffff" }}
+                onClick={() => setModalOpen(false)}
+              >
+                ×
+              </button>
+
+              <h2>{project.title}</h2>
+
+              <div className="modal-body">
+                <div className="modal-section">
+                  <h3>DESCRIPTION</h3>
+                  <p>{project.description}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>CONTEXTE</h3>
+                  <p>{project.contexte}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>OBJECTIFS</h3>
+                  <p>{project.objectifs}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>STACK</h3>
+                  <p>{project.stack}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>COMPETENCES</h3>
+                  <p>{project.competences}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>RESULTATS</h3>
+                  <p>{project.resultats}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>PERSPECTIVES</h3>
+                  <p>{project.perspectives}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>GITHUB</h3>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#f9a825" }}
+                  >
+                    Voir le repository GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
-    <section id="projects" className="py-12 md:py-20 px-4 scroll-mt-16">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
+    <section id="projects">
+      <div className="projects-container">
+        <h2 className="projects-title text-foreground font-bold">
           Projets
         </h2>
 
- {/* Filtres */}
-<div className="flex flex-wrap gap-3 justify-center mb-8 md:mb-12">
-  {categories.map((category) => (
-    <button
-      key={category}
-      onClick={() => setFilter(category)}
-      aria-pressed={filter === category}
-      className={`px-5 py-2 rounded-full font-medium transition-colors duration-200 border-2
-        ${filter === category
-          ? "bg-primary text-white border-primary"    // Filtre actif
-          : "bg-background text-white border-primary hover:bg-primary hover:text-white" // Filtre inactif
-        }`}
-    >
-      {category}
-    </button>
-  ))}
-</div>
+        <div className="projects-filters">
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setFilter(category)}
+              className={`project-filter-btn font-medium ${
+                filter === category
+                  ? "bg-primary text-white"
+                  : "bg-background text-white hover:bg-primary"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
-
-
- 
-       {/* Grille des projets */}
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-  {filteredProjects.map(project => (
-    <ProjectCard key={project.title} project={project} />
-  ))}
-</div>
+        <div className="projects-grid">
+          {filteredProjects.map(project => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );

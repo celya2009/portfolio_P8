@@ -1,6 +1,7 @@
 import React from "react";
-import { cn } from "@/lib/utils"; // On utilise cn pour la composition des classes
+import { cn } from "@/lib/utils";
 
+// Conteneur principal
 export const Card = ({ className, ...props }) => (
   <div
     className={cn(
@@ -11,22 +12,39 @@ export const Card = ({ className, ...props }) => (
   />
 );
 
+// Header (AUCUN padding / margin)
 export const CardHeader = ({ className, ...props }) => (
-  <div className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  <div className={cn("flex flex-col", className)} {...props} />
 );
 
+// Titre
 export const CardTitle = ({ className, ...props }) => (
-  <h3 className={cn("text-2xl font-semibold leading-none tracking-tight", className)} {...props} />
+  <h3
+    className={cn(
+      "text-2xl font-semibold leading-none tracking-tight",
+      className
+    )}
+    {...props}
+  />
 );
 
+// Description
 export const CardDescription = ({ className, ...props }) => (
-  <p className={cn("text-sm text-muted-foreground", className)} {...props} />
+  <p
+    className={cn(
+      "text-sm text-muted-foreground",
+      className
+    )}
+    {...props}
+  />
 );
 
+// Contenu (AUCUN padding)
 export const CardContent = ({ className, ...props }) => (
-  <div className={cn("p-6 pt-0", className)} {...props} />
+  <div className={cn(className)} {...props} />
 );
 
+// Footer (AUCUN padding)
 export const CardFooter = ({ className, ...props }) => (
-  <div className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  <div className={cn("flex items-center", className)} {...props} />
 );

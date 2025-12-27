@@ -1,17 +1,20 @@
 import React from "react";
+import "./footer.css";
 
 const Footer = () => {
   return (
     <footer
-      className="w-full bg-[hsl(var(--background))] border-t border-border"
+      className="w-full bg-footer  border-t border-border"
       role="contentinfo"
     >
-      <div className="max-w-6xl mx-auto px-4 flex justify-center items-center h-16">
-        <p className="text-foreground text-sm">© {new Date().getFullYear()} Portfolio</p>
-        <nav
-          className="ml-6 flex gap-6"
-          aria-label="Liens vers mes profils"
-        >
+      <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center h-16">
+        {/* Texte copyright */}
+        <p className="text-foreground text-sm mb-2 sm:mb-0">
+          © {new Date().getFullYear()} Portfolio
+        </p>
+
+        {/* Liens */}
+        <nav className="flex gap-6" aria-label="Liens vers mes profils">
           <a
             href="https://github.com/celya2009"
             target="_blank"

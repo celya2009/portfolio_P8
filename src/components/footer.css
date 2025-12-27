@@ -1,0 +1,30 @@
+/* src/components/footer.css */
+footer {
+  width: 100%;
+  height: 4rem; /* correspond à h-16 Tailwind */
+}
+
+footer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* équivalent px-4 */
+  gap: 1.5rem; /* espace entre le texte et le nav */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  footer > div {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  footer nav {
+    margin-left: 0;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
