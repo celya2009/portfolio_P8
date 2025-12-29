@@ -3,7 +3,7 @@
 /* Footer principal */
 .footer {
   width: 100%;
-  min-height: 10vh; /* hauteur minimum comme les autres sections */
+  min-height: 5vh; /* hauteur minimum comme les autres sections */
   box-sizing: border-box;
 }
 

@@ -1,15 +1,13 @@
 /* ===== Structure générale de la section Skills ===== */
-.skills-section {
- 
-  min-height: 100vh;       /* chaque section prend la hauteur de l'écran */
-  padding-top: 4rem;       /* espace pour navbar */
+.skills-section {      
+  padding-top: 60px;       /* espace pour navbar */
   display: flex;
   flex-direction: column;
-  
   align-items: center;
   width: 100%;
-  background-color: #464749; /* même fond que About */
-  color: #f9fafb;            /* texte principal */
+ padding-bottom: 5rem; 
+  color: #f9fafb;            /* texte principal */ 
+      /* éviter que le contenu déborde visuellement */
 }
 
 .skills-title {
@@ -19,17 +17,17 @@
   line-height: 1.3;
   margin-top: 0;
   color: #f9fafb;             /* texte principal */
+  margin-bottom: 2rem;
 }
 
 .skills-container {
   width: 100%;
-  max-width: 60rem; /* limite largeur du contenu */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   padding: 0 1rem;  /* espace horizontal pour mobile */
-  margin-top: 4rem; /* décalage vertical */
+ 
 }
 
 /* Texte au-dessus et en-dessous */
@@ -48,10 +46,11 @@
   align-items: center;
   text-align: center;
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 80%;
+  margin-bottom: 3rem;
+  
   max-width: 70rem;      /* carte plus compacte */
-  padding: 1rem;          /* moins de padding */
+ padding: 2.5rem 0rem 0rem 0rem;         /* moins de padding */
+ min-height: 200px;
   border-radius: 1rem;
   background-color: #343536; /* fond carte */
   box-shadow: 0 4px 8px rgb(255, 252, 252);
@@ -59,28 +58,30 @@
 
 /* Grille des compétences */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;             /* réduit l'espacement */
+  display: flex;
+  flex-wrap: wrap;           /* permet de passer à la ligne */
+  justify-content: center;   /* centre les items */
+  gap: 1rem;                 /* espace entre les logos */
   width: 100%;
-  max-width: 50rem;      /* réduit largeur */
-  margin-top: 1rem;
+  max-width: 50rem;
 }
 
+/* Chaque item compétence */
 .skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 60px;              /* largeur fixe pour chaque item */
+  flex-shrink: 0;           /* empêche le rétrécissement excessif */
   cursor: pointer;
 }
 
 .skill-logo {
-  width: 40px;            /* réduit la taille */
+  width: 40px;
   height: 40px;
   object-fit: contain;
   margin-bottom: 0.5rem;
 }
-
 /* Nom compétence */
 .skill-name {
   font-weight: 600;
@@ -168,35 +169,26 @@
   color: #f6e33b;  /* couleur primaire */
   text-decoration: underline;
   cursor: pointer;
+   background-color: transparent;
   
 }
 
-/* ===== Responsive minimal ===== */
+@media (max-width: 1024px) {
+  .skills-section {
+    padding-top: 140px; /* un peu plus pour compenser navbar */
+  }
+}
+
+/* Petit mobile */
 @media (max-width: 768px) {
   .skills-section {
-    padding-bottom: 0.5rem; 
-  }
-
-  .skill-logo {
-    width: 30px;
-    height: 30px;
+    padding-top: 160px;
   }
 }
 
+/* Très petit mobile */
 @media (max-width: 480px) {
   .skills-section {
-    padding-bottom: 0.2rem; 
-  }
-
-  .skill-logo {
-    width: 25px;
-    height: 25px;
-  }
-}
-
-@media (max-width: 360px) {
-  .skill-logo {
-    width: 20px;
-    height: 20px;
+    padding-top: 80px;
   }
 }

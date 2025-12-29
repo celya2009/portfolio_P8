@@ -8,12 +8,13 @@ import Footer from "@/components/footer";
 import Projects from "@/components/projects";
 import Skills from "@/components/skills";
 
+
 const Index = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
   return (
     <>
       <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
 
-      <main className="flex flex-col overflow-x-hidden bg-background">
+      <main className="main">
         <Hero />
         <About />
         <Skills />

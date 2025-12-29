@@ -11,7 +11,7 @@ import mongoLogo from "@/assets/logos/mongodb.webp";
 import sassLogo from "@/assets/logos/sass.webp";
 import githubLogo from "@/assets/logos/github.webp";
 import figmaLogo from "@/assets/logos/figma.webp";
-import tailwindLogo from "@/assets/logos/tailwindcss.webp";
+
 
 const technicalSkills = [
   { name: "HTML5", logo: htmlLogo, description: "Intégration de contenu conforme à une maquette, structuration sémantique.", level: "Confirmé" },
@@ -23,7 +23,7 @@ const technicalSkills = [
   { name: "Sass", logo: sassLogo, description: "Styles avancés avec variables et mixins.", level: "Débutant" },
   { name: "GitHub", logo: githubLogo, description: "Gestion de versions et collaboration via Git.", level: "Intermédiaire" },
   { name: "Figma", logo: figmaLogo, description: "Intégration d'une maquette design et adaptation front-end.", level: "Intermédiaire" },
-  { name: "Tailwind CSS", logo: tailwindLogo, description: "Stylisation rapide avec classes utilitaires.", level: "Débutant" },
+  
 ];
 
 const Skills = () => {
@@ -94,21 +94,23 @@ const Skills = () => {
         </div>
       </div>
       </div>
-      <p className="skills-info-bottom">
-        Ces compétences sont mises en œuvre dans les{" "}
-        <button
-          type="button"
-          onClick={() =>
-            document
-              .getElementById("projects")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="skills-link"
-        >
-          projets réalisés
-        </button>
-        .
-      </p>
+     <p className="skills-info-bottom">
+  Ces compétences sont mises en œuvre dans les{" "}
+  <a
+    href="#projects"
+    className="skills-link"
+    onClick={(e) => {
+      e.preventDefault(); // empêche le saut instantané
+      document
+        .getElementById("projects")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }}
+  >
+    projets réalisés
+  </a>
+  .
+</p>
+
 
       {technicalSkills.map(
         (skill) =>
