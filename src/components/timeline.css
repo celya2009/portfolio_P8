@@ -1,81 +1,115 @@
-.timeline-container {
-    width: 100%;
-      padding: 5rem 1rem 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: visible;
-    box-sizing: border-box;
-}
-
-.timeline-item {
+/* ----------------- Conteneur général ----------------- */
+.timeline-section {
   position: relative;
-  
+  min-height: 100vh;       /* chaque section prend la hauteur de l'écran */
+  padding-top: 4rem;       /* espace pour navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  align-items: center;  
 }
 
-.timeline-line {
-  position: absolute;
-  width: 4px;
-
+/* ----------------- Conteneur interne ----------------- */
+.container {
+  width: 100%;
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-.timeline-circle {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  
-  
-  top: 0;
+/* ----------------- Titre ----------------- */
+.timeline-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+  margin-top: 0;
+  color: #f9fafb; /* texte clair comme les autres sections */
+}
+
+/* ----------------- Timeline Cards ----------------- */
+.timeline-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;         /* cartes sur plusieurs lignes si écran réduit */
+  justify-content: center;  /* cartes centrées */
+  gap: 2rem;
 }
 
 .timeline-card {
- display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin-top: 3rem;
+ justify-content: space-between; 
   padding: 1rem;
-  width: 100%;         /* occupe toute la largeur possible */
- max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-  border-radius: 1.5rem;
-   box-shadow: 0 4px 8px rgb(255, 252, 252);
- 
+  width: 400px;    /* largeur fixe des cartes */
+  border-radius: 1rem;  
+  height: 300px;      
+  box-shadow: 0 4px 8px rgb(255 255 255 / 50%);
+  background-color: #343536; /* fond sombre type card */
 }
 
-.timeline-card button {
+.timeline-year {
+  color: #b26500;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title-card {
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-company {
+  color: #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-btn {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  border: none;
   border-radius: 0.5rem;
+  border: 2px solid #f9fafb;
+  background-color: transparent;
+  color: #f9fafb;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-/* Modale */
+.timeline-btn:hover {
+  background-color: #f97316; /* couleur primaire hover */
+  border-color: #f97316;
+  color: #ffffff;
+}
+
+/* ----------------- Modale ----------------- */
 .modal-overlay {
   position: fixed;
   top: 0;
-  
+  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.7);
 }
 
 .modal-content {
   max-width: 600px;
   width: 90%;
   padding: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   overflow-y: auto;
   position: relative;
+  background-color: #464749; /* bg-card-light */
+  color: #f9fafb;
 }
 
 .modal-close {
@@ -83,12 +117,22 @@
   top: 1rem;
   right: 1rem;
   font-size: 1.5rem;
-  background: transparent;
   border: none;
   cursor: pointer;
+  background: transparent;
+  color: #f9fafb;
 }
 
-/* CV bouton */
+.modal-content h3 {
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* ----------------- CV bouton ----------------- */
 .timeline-cv {
   text-align: center;
   margin-top: 2rem;
@@ -100,38 +144,45 @@
   border-radius: 0.5rem;
   text-decoration: none;
   font-weight: 600;
+  border: 2px solid #f9fafb;
+  color: #f9fafb;
+  transition: all 0.2s ease;
 }
 
-/* Responsive */
+.timeline-cv a:hover {
+  background-color: #f97316; /* couleur primaire hover */
+  border-color: #f97316;
+  color: #ffffff;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 1024px) {
+  .timeline-card {
+    width: 250px;
+  }
+}
+
 @media (max-width: 768px) {
   .timeline-card {
-   
-    padding: 1rem;
-  }
-
-  .timeline-circle {
-  
-  }
-
-  .timeline-line {
-
+    width: 45%;
+    margin: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .timeline-card {
-   
-    padding: 0.75rem;
+    width: 90%;
   }
-
-  .timeline-circle {
-    
-    width: 14px;
-    height: 14px;
+  .timeline-title {
+    font-size: 1.8rem;
   }
+}
 
-  .timeline-line {
-  
-    width: 3px;
+@media (max-width: 360px) {
+  .timeline-card {
+    width: 100%;
+  }
+  .timeline-title {
+    font-size: 1.5rem;
   }
 }

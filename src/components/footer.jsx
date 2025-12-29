@@ -3,18 +3,15 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer
-      className="w-full bg-footer  border-t border-border"
-      role="contentinfo"
-    >
-      <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center h-16">
-        {/* Texte copyright */}
-        <p className="text-foreground text-sm mb-2 sm:mb-0">
+    <footer className="footer bg-footer border-t border-border" role="contentinfo">
+      <div className="footer-container">
+        {/* Texte copyright à gauche */}
+        <p className="footer-left text-foreground">
           © {new Date().getFullYear()} Portfolio
         </p>
 
-        {/* Liens */}
-        <nav className="flex gap-6" aria-label="Liens vers mes profils">
+        {/* Liens à droite */}
+        <nav className="footer-right" aria-label="Liens vers mes profils">
           <a
             href="https://github.com/celya2009"
             target="_blank"

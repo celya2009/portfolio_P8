@@ -67,18 +67,17 @@ const Skills = () => {
   }, [modalOpen]);
 
   return (
-    <section id="skills" className="section text-white font-sans">
-      <h2 className="skills-title text-2xl sm:text-3xl md:text-4xl font-bold text-center">
+    <section id="skills" className="skills-section">
+      <div className="skills-container">
+      <h2 className="skills-title">
         Compétences
       </h2>
 
-      {/* Info au-dessus */}
-      <p className="skills-info-top">
+      <p className="skills-intro">
         Cliquez sur un logo pour voir mon niveau de maîtrise.
       </p>
 
-      {/* Card */}
-      <div className="skills-card bg-card">
+      <div className="skills-card">
         <div className="skills-grid">
           {technicalSkills.map((skill) => (
             <div
@@ -87,15 +86,14 @@ const Skills = () => {
               onClick={() => openModal(skill.name)}
             >
               <img src={skill.logo} alt={skill.name} className="skill-logo" />
-              <span className="text-white font-semibold text-center">
+              <span className="skill-name">
                 {skill.name}
               </span>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Info en dessous */}
+      </div>
       <p className="skills-info-bottom">
         Ces compétences sont mises en œuvre dans les{" "}
         <button
@@ -105,14 +103,13 @@ const Skills = () => {
               .getElementById("projects")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="text-primary underline"
+          className="skills-link"
         >
           projets réalisés
         </button>
         .
       </p>
 
-      {/* Modale */}
       {technicalSkills.map(
         (skill) =>
           modalOpen === skill.name && (
@@ -122,30 +119,30 @@ const Skills = () => {
               onClick={closeModal}
             >
               <div
-                className="skills-modal bg-card text-white"
+                className="skills-modal"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
-                  className="skills-modal-close text-white"
+                  className="skills-modal-close"
                   onClick={closeModal}
                 >
                   ×
                 </button>
 
-                <h3 className="text-xl font-bold">{skill.name}</h3>
-                <p className="text-white/80">{skill.description}</p>
+                <h3 className="skills-modal-title">{skill.name}</h3>
+                <p className="skills-modal-desc">{skill.description}</p>
 
                 <div className="skills-modal-level">
-                  <span className="font-semibold">Niveau</span>
+                  <span className="skills-modal-level-label">Niveau</span>
 
                   <div className="skills-progress-bg">
                     <div
-                      className="skills-progress-fill bg-primary"
+                      className="skills-progress-fill"
                       style={{ width: `${progress}%` }}
                     />
                   </div>
 
-                  <span>{skill.level}</span>
+                  <span className="skills-modal-level-text">{skill.level}</span>
                 </div>
               </div>
             </div>

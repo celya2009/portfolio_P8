@@ -1,34 +1,43 @@
-/* navbar.css */
-
-/* Navbar globale */
+/* ----------------- Navbar général ----------------- */
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 50;
-  display: flex;
-  justify-content: center;
-  background-color: #464444ff; /* fond gris foncé, conforme à Tailwind config */
-  backdrop-filter: blur(5px);
-  border-bottom: 1px solid #3F3F46; /* border similaire à Tailwind config */
-}
-
-/* Container interne pour centrer et espacer */
-.navbar-container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 2rem;
+  height: 60px;
+  background-color: #1f1f1f; /* couleur header */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 4rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
 
-/* Logo + texte */
+/* Conteneur interne */
+.navbar-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
 .navbar-logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: 40px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff7d04; /* couleur primaire */
 }
 
 /* Menu desktop */
@@ -37,30 +46,87 @@
   gap: 1.5rem;
 }
 
+.nav-item {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #ff7d04; /* couleur primaire hover */
+}
+
 /* Hamburger mobile */
 .navbar-menu-toggle {
-  display: none; /* par défaut caché, Tailwind md:hidden s'applique */
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
 }
 
-/* Mobile menu overlay */
+/* Icon SVG */
+.icon {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+}
+
+/* Menu mobile overlay */
 .navbar-menu-mobile {
-  position: absolute;
-  top: 4rem; /* juste en dessous du navbar */
+  position: fixed;
+  top: 60px; /* sous la navbar */
   left: 0;
   width: 100%;
+  background-color: #1f1f1f;
   display: flex;
   flex-direction: column;
-  background-color: #464444ff;
-  border-bottom: 1px solid #3F3F46;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  z-index: 999;
 }
 
-/* Responsive mobile */
-@media (max-width: 767px) {
+.nav-item-mobile {
+  width: 90%;
+  padding: 0.75rem;
+  text-align: center;
+  background: none;
+  border: 1px solid #ffffff;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-item-mobile:hover {
+  background-color: #ff7d04;
+  color: #ffffff;
+  border-color: #ff7d04;
+}
+
+/* ----------------- Responsive ----------------- */
+@media screen and (max-width: 768px) {
   .navbar-menu-desktop {
-    display: none; /* cache le menu desktop sur mobile */
+    display: none;
   }
+
   .navbar-menu-toggle {
-    display: block; /* affiche le bouton hamburger sur mobile */
+    display: block;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .nav-item-mobile {
+    font-size: 0.9rem;
+  }
+}

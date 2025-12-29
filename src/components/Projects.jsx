@@ -96,97 +96,32 @@ const Projects = () => {
 
     useEffect(() => {
       document.body.style.overflow = modalOpen ? "hidden" : "auto";
-      return () => {
-        document.body.style.overflow = "auto";
-      };
+      return () => { document.body.style.overflow = "auto"; };
     }, [modalOpen]);
 
     return (
-      <div>
-        {/* Carte du projet */}
-        <div
-          className="project-card"
-          style={{ backgroundColor: "#f5ededff", color: "#ffffff" }}
-          onClick={() => setModalOpen(true)}
-        >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="project-card-image"
-          />
-
-          <div
-            className="project-overlay"
-            style={{ backgroundColor: "rgba(0,0,0,0.7)", color: "#fff" }}
-          >
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
+      <div className="project-card-wrapper">
+        <div className="project-card" onClick={() => setModalOpen(true)}>
+          <img src={project.image} alt={project.title} className="project-card-image"/>
+          <div className="project-overlay">
+             <h3 className="project-title">{project.title}</h3>
+             <p className="project-description">{project.description}</p>
           </div>
         </div>
-
-        {/* Modale */}
         {modalOpen && (
-          <div className="modal-overlay">
-            <div
-              className="modal-content"
-              style={{ backgroundColor: "#2c2c2c", color: "#ffffff" }}
-            >
-              <button
-                className="modal-close"
-                style={{ color: "#ffffff" }}
-                onClick={() => setModalOpen(false)}
-              >
-                ×
-              </button>
-
-              <h2>{project.title}</h2>
-
+          <div className="modal-overlay" onClick={() => setModalOpen(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setModalOpen(false)}>×</button>
               <div className="modal-body">
-                <div className="modal-section">
-                  <h3>DESCRIPTION</h3>
-                  <p>{project.description}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>CONTEXTE</h3>
-                  <p>{project.contexte}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>OBJECTIFS</h3>
-                  <p>{project.objectifs}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>STACK</h3>
-                  <p>{project.stack}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>COMPETENCES</h3>
-                  <p>{project.competences}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>RESULTATS</h3>
-                  <p>{project.resultats}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>PERSPECTIVES</h3>
-                  <p>{project.perspectives}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>GITHUB</h3>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#f9a825" }}
-                  >
-                    Voir le repository GitHub
-                  </a>
+                <div className="modal-section"><h3>Description</h3><p>{project.description}</p></div>
+                <div className="modal-section"><h3>Contexte</h3><p>{project.contexte}</p></div>
+                <div className="modal-section"><h3>Objectifs</h3><p>{project.objectifs}</p></div>
+                <div className="modal-section"><h3>Stack</h3><p>{project.stack}</p></div>
+                <div className="modal-section"><h3>Compétences</h3><p>{project.competences}</p></div>
+                <div className="modal-section"><h3>Résultats</h3><p>{project.resultats}</p></div>
+                <div className="modal-section"><h3>Perspectives</h3><p>{project.perspectives}</p></div>
+                <div className="modal-section"><h3>GitHub</h3>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">Voir le repository GitHub</a>
                 </div>
               </div>
             </div>
@@ -197,22 +132,16 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" className="project-section" aria-label="projets">
       <div className="projects-container">
-        <h2 className="projects-title text-foreground font-bold">
-          Projets
-        </h2>
+        <h2 className="projects-title">Projets</h2>
 
         <div className="projects-filters">
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`project-filter-btn font-medium ${
-                filter === category
-                  ? "bg-primary text-white"
-                  : "bg-background text-white hover:bg-primary"
-              }`}
+              className={`project-filter-btn ${filter === category ? "active" : ""}`}
             >
               {category}
             </button>

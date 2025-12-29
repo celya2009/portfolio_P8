@@ -1,4 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+body {
+  margin: 0;               /* enlever les marges par défaut */
+  padding: 0;              /* enlever le padding par défaut */
+  font-family: 'Arial', sans-serif; /* police globale */
+  background-color: #464749; /* fond gris global */
+  color: #f9fafb;          /* couleur du texte globale */
+}
