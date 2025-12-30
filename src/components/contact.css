@@ -1,24 +1,24 @@
-/* ----------------- Conteneur général ----------------- */
+/* ----------------- Conteneur général ----------------- */ 
 .contact-section {
   position: relative;
-  padding-top: 4rem;
+  padding-top: 50px;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
- 
   color: #f9fafb;
 }
 
 /* ----------------- Conteneur interne ----------------- */
 .contact-container {
   width: 100%;
- 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 1rem;
+   margin-top: 0;
 }
 
 /* ----------------- Titre ----------------- */
@@ -27,38 +27,39 @@
   font-weight: 700;
   text-align: center;
   margin-top: 0;
+  margin-bottom: 1rem; /* petit espace avec les cards */
 }
 
 /* ----------------- Grille informations + formulaire ----------------- */
 .contact-grid {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
 }
 
 /* ----------------- Cartes ----------------- */
 .contact-card {
   background-color: #3a3b3c;
   color: #f9fafb;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 4px 8px rgb(255, 252, 252);
-  flex: 1 1 350px;
-  max-width: 400px;
+  flex: 1 1 300px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* centre le contenu verticalement et pousse les liens en bas */
-  height: 400px; /* augmente la hauteur de la carte */
-  gap: 1rem;
-  font-size: 2rem;
+  justify-content: space-between;
+  gap: 2rem;
+  font-size: 1rem;
 }
 
 /* ----------------- Texte et liens ----------------- */
 .contact-intro {
   font-style: italic;
-  font-size: 1.2rem; /* augmente la taille de la police */
+  font-size: 1.2rem;
   text-align: center;
 }
 
@@ -66,13 +67,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: auto; /* pousse les liens vers le bas */
+  margin-top: auto;
 }
+
 .contact-card h3 {
   font-size: 1.8rem;
   font-weight: 700;
-  text-align: center; /* titre non centré verticalement mais aligné à gauche */
-  margin-bottom: 1rem; 
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .contact-links a {
@@ -82,7 +84,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: color 0.2s ease;
-  font-size: 1.1rem; /* texte plus lisible */
+  font-size: 1.1rem;
 }
 
 .contact-links a:hover {
@@ -100,8 +102,8 @@
 .contact-card textarea {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  background-color: #2b2b2b;
+  border: 1px solid #3a3b3c; /* même couleur que le fond */
+  background-color: #616263; /* même couleur que la card */
   color: #f9fafb;
   font-size: 1rem;
   resize: vertical;
@@ -112,21 +114,28 @@
 }
 
 .contact-card button {
-  padding: 0.75rem 0.5rem;
-  border-radius: 0.5rem;
+   padding: 0.5rem 1.2rem;
+  border-radius: 0.75rem;
   border: none;
   background-color: #ff7d04;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
-   font-size: 1rem; /* réduit la taille du texte du bouton */
-  width: fit-content; 
-     margin: 1rem auto 0 auto;
+  transition: all 0.3s ease;
+  font-size: 0.90rem;
+  width: fit-content;
+  margin: 1rem auto 0 auto;
 }
 
 .contact-card button:hover {
   background-color: #e66f00;
+  box-shadow: 0 4px 12px rgba(255, 125, 4, 0.6);
+  transform: translateY(-2px);
+}
+
+.contact-card button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(255, 125, 4, 0.6);
 }
 
 /* ----------------- Responsive ----------------- */

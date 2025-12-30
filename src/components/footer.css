@@ -1,10 +1,11 @@
 /* src/components/footer.css */
 
 /* Footer principal */
-.footer {
+.footer-section {
   width: 100%;
-  min-height: 5vh; /* hauteur minimum comme les autres sections */
   box-sizing: border-box;
+  background-color: #1f1f1f;
+  padding: 0.2rem 0; 
 }
 
 /* Container interne avec max-width et centrage */
@@ -16,14 +17,14 @@
   justify-content: space-between; /* texte à gauche, liens à droite */
   align-items: center;
   flex-wrap: wrap; /* pour responsive */
-  gap: 1rem;
-  padding: 1rem 1rem; /* padding horizontal */
+ 
 }
 
 /* Texte copyright à gauche */
 .footer-left {
   font-size: 0.875rem;
-  color: var(--foreground); /* utiliser variable Tailwind ou couleur définie */
+  color: white; 
+  
 }
 
 /* Liens à droite */

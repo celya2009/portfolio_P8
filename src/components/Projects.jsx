@@ -132,7 +132,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="project-section" aria-label="projets">
+    <section id="projects" className="projects-section" aria-label="projets">
       <div className="projects-container">
         <h2 className="projects-title">Projets</h2>
 

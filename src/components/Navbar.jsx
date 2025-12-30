@@ -33,7 +33,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar-section">
       <div className="navbar-container">
         <div className="navbar-logo">
           <img src={logo} alt="Logo" />

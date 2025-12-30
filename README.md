@@ -12,7 +12,7 @@ Le portfolio présente :
 - Une **timeline** de parcours
 - Une section **Contact** avec formulaire et liens vers GitHub/email
 
-Le site est développé avec **React**, **TailwindCSS**, et optimisé pour le **mode sombre**.
+Le site est développé avec **React**, et optimisé pour le **mode sombre**.
 
 ## Installation
 

@@ -1,8 +1,8 @@
 /* ----------------- Conteneur général ----------------- */
 .timeline-section {
-  position: relative;
-  min-height: 100vh;       /* chaque section prend la hauteur de l'écran */
-  padding-top: 4rem;       /* espace pour navbar */
+  position: relative;       /* chaque section prend la hauteur de l'écran */
+  padding-top: 55px;       /* espace pour navbar */
+  padding-bottom: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,9 +44,9 @@
   align-items: center;
  justify-content: space-between; 
   padding: 1rem;
-  width: 400px;    /* largeur fixe des cartes */
+ 
   border-radius: 1rem;  
-  height: 300px;      
+     
   box-shadow: 0 4px 8px rgb(255 255 255 / 50%);
   background-color: #343536; /* fond sombre type card */
 }

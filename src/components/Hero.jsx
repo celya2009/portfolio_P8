@@ -1,4 +1,3 @@
-import { Button } from "@/components/button";
 import heroImage from "@/assets/hero.webp";
 import "./hero.css";
 

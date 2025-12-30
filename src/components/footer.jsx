@@ -3,35 +3,22 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-footer border-t border-border" role="contentinfo">
+    <footer className="footer-section" role="contentinfo">
       <div className="footer-container">
         {/* Texte copyright à gauche */}
-        <p className="footer-left text-foreground">
+        <p className="footer-left">
           © {new Date().getFullYear()} Portfolio
         </p>
 
         {/* Liens à droite */}
         <nav className="footer-right" aria-label="Liens vers mes profils">
-          <a
-            href="https://github.com/celya2009"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground hover:text-primary transition-colors"
-          >
+          <a href="https://github.com/celya2009" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
-          <a
-            href="https://www.linkedin.com/in/malika-salhi-6357a939a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground hover:text-primary transition-colors"
-          >
+          <a href="https://www.linkedin.com/in/malika-salhi-6357a939a/" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          <a
-            href="mailto:sousstizni@hotmail.fr"
-            className="text-foreground hover:text-primary transition-colors"
-          >
+          <a href="mailto:sousstizni@hotmail.fr">
             Email
           </a>
         </nav>
