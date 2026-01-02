@@ -54,7 +54,9 @@
   padding: 0.5rem 0.75rem;
   transition: color 0.3s ease;
 }
-
+.nav-item:hover {
+  color: var(--accent-lavender); 
+}
 /* Hamburger mobile */
 .navbar-menu-toggle {
   display: none;
@@ -99,7 +101,7 @@
 
 .nav-item-mobile:hover {
   background-color: var(--accent-pink);
-  color: #FFFFFF; 
+ color: var(--accent-lavender);
 }
 
 /* ----------------- Responsive ----------------- */
