@@ -1,4 +1,4 @@
-/* ----------------- Conteneur général ----------------- */ 
+/* ----------------- Conteneur général ----------------- */
 .contact-section {
   position: relative;
   padding-top: 30px;
@@ -6,16 +6,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-
 }
 
 /* ----------------- Conteneur interne ----------------- */
 .contact-container {
-
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   gap: 1rem;
   padding: 1rem;
 }
@@ -23,31 +20,25 @@
 /* ----------------- Titre ----------------- */
 .contact-title {
   font-size: 2.5rem;
- 
 }
 
 /* ----------------- Grille informations + formulaire ----------------- */
 .contact-grid {
   display: flex;
-flex-direction: row;  
-
- margin: 1rem;
- padding: 1rem;
-   gap: 1rem;
-    flex-wrap: nowrap;         /* interdit aux cartes de passer à la ligne */
-  justify-content: space-between; 
+  flex-direction: row;
+  margin: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 /* ----------------- Cartes ----------------- */
 .contact-card {
- 
- 
   padding: 1rem;
   border-radius: 1rem;
-
   display: flex;
   flex-direction: column;
-
   gap: 2rem;
   font-size: 1rem;
 }
@@ -59,16 +50,17 @@ flex-direction: row;
   text-align: center;
   margin: 1rem;
 }
-.contact-link{
-   display: flex;             
-  flex-direction: column;    
-  gap: 0.7rem;               
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
   margin-top: 3rem;
 }
 
 .contact-link a {
   color: var(--accent-lavender);
-  }
+}
 
 
 .contact-card h3 {
@@ -88,46 +80,46 @@ flex-direction: row;
 .contact-card textarea {
   padding: 0.75rem;
   border-radius: 0.5rem;
-  border: 1px solid #3a3b3c; 
-    background-color: #454647;
-   color: #FFFFFF ; 
+  border: 1px solid #3a3b3c;
+  background-color: #454647;
+  color: #FFFFFF;
   font-size: 1rem;
   resize: vertical;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #FFFFFF ;
+  color: #FFFFFF;
 }
 
 
 .contact-card button {
-    font-family: var(--font-main);
+  font-family: var(--font-main);
   background-color: var(--accent-lavender);
-  color: var(--bg-main);
   border: none;
   padding: 0.6em 1.2em;
   border-radius: 0.5em;
   cursor: pointer;
   transition: all 0.3s ease;
-   color: #1a1a1a;
+  color: #1a1a1a;
 }
 
 .contact-card button:hover {
-    background-color: var(--accent-cyan);
-  color: var(--bg-main);
+  background-color: var(--accent-cyan);
+  color: #FFFFFF;
 }
 
 .contact-card button:active {
- background-color: var(--accent-pink);
-  color: var(--bg-main);
+  background-color: var(--accent-pink);
+  color: #FFFFFF;
 }
 
-  
+
 @media (max-width: 768px) {
   .contact-title {
     font-size: 1.8rem;
   }
+
   .contact-grid {
     align-items: stretch;
   }
@@ -137,14 +129,13 @@ textarea::placeholder {
   .contact-title {
     font-size: 1.5rem;
   }
-  .contact-card h3{
-     font-size: 1rem;
-  }  
+
+  .contact-card h3 {
+    font-size: 1rem;
+  }
+
   .contact-grid {
-       flex-direction: column; 
+    flex-direction: column;
   }
-  .contact-card {
-    max-height: 28vh;          /* 👈 clé */
-    overflow-y: auto;          /* scroll interne */
-  }
+
 }
