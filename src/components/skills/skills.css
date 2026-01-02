@@ -17,9 +17,9 @@ flex: 0 0 100px;
 .skill-item {
   display: flex;
   flex-direction: column;
-  align-items: center;   /* ⭐ centre logo + texte */
-  cursor: pointer; /* ⭐ indique qu’on peut cliquer */
-  transition: transform 0.2s, box-shadow 0.2s; /* pour l’effet hover */
+  align-items: center;   
+  cursor: pointer; 
+  transition: transform 0.2s, box-shadow 0.2s; 
 }
 .skill-item:hover {
   transform: scale(1.05);
@@ -36,8 +36,8 @@ flex: 0 0 100px;
 /* Grille des compétences */
 .skills-grid {
   display: flex;
-  flex-wrap: wrap;      /* permet aux cartes de passer à la ligne */
-  justify-content: center;  /* centre les cartes */
+  flex-wrap: wrap;     
+  justify-content: center;  
  margin: 1rem;
  padding: 1rem;
    gap: 2rem;
@@ -45,8 +45,8 @@ flex: 0 0 100px;
 
 
 .skill-logo {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   margin-bottom: 0.5rem;
 }
@@ -104,7 +104,7 @@ flex: 0 0 100px;
 
 .skills-modal-level-label {
   font-weight: 600;
-    color: var(--text-main);
+    color: white;
 }
 
 .skills-progress-bg {
@@ -123,14 +123,15 @@ flex: 0 0 100px;
 }
 
 .skills-modal-level-text {
-   color: var(--text-main);
+   color: white;
 }
 
 /* Modal simple */
 .skills-modal {
-  background-color: #343536; /* foncé différent du fond card */
-  color: var(--bg-main);
-  padding: 1.5rem;
+  background-color: #343536; 
+  color: white;
+  padding: 1rem;
+  margin: 1rem;
   border-radius: 1rem;
   max-width: 400px;
   width: 90%;
@@ -187,7 +188,10 @@ flex: 0 0 100px;
   margin-top: 0.3rem;
   text-align: right;
 }
-
+.skill-item h3 {
+    font-size: 1.5rem;
+ 
+  }
 
 
 @media (max-width: 768px) {
@@ -210,11 +214,6 @@ flex: 0 0 100px;
 }
 
 @media (max-width: 480px) {
- 
-  .skills-card {
-       
-
-  }
 
   .skill-logo {
     width: 15px;

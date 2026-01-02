@@ -18,7 +18,7 @@ const About = () => {
         </p>
 
         {/* Card globale */}
-       <Card className="about-card">
+        <Card className="about-card">
           <h3>Compétences</h3>
           <p>
             Front-End : HTML5, CSS3, JavaScript, React, React Router,

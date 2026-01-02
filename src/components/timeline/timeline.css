@@ -1,7 +1,9 @@
 /* ----------------- Conteneur général ----------------- */
 .timeline-section {
-  position: relative;       /* chaque section prend la hauteur de l'écran */
-  padding-top: 65px;       /* espace pour navbar */
+  position: relative;
+  /* chaque section prend la hauteur de l'écran */
+  padding-top: 65px;
+  /* espace pour navbar */
   padding-bottom: 10rem;
   display: flex;
   flex-direction: column;
@@ -12,7 +14,6 @@
 /* ----------------- Conteneur interne ----------------- */
 .container {
   width: 100%;
-   
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,40 +29,35 @@
 .timeline-container {
   width: 100%;
   display: flex;
-         /* cartes sur plusieurs lignes si écran réduit */
-  justify-content: center;  /* cartes centrées */
-  gap: 2rem;
+  justify-content: center;
 }
 
 .timeline-card {
   display: flex;
   flex-direction: column;
   align-items: center;
- justify-content: space-between; 
+  justify-content: space-between;
   padding: 1rem;
   margin: 1rem;
 }
 
 .timeline-year {
-  
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .timeline-title-card {
   font-weight: 700;
-  
   margin-bottom: 0.5rem;
 }
 
 .timeline-company {
-
   margin-bottom: 0.9rem;
 }
 
 .timeline-btn {
-  background-color: var(--accent-lavender); 
-color: var(--bg-main);
+  background-color: var(--accent-lavender);
+  color: var(--bg-main);
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5rem;
@@ -69,10 +65,12 @@ color: var(--bg-main);
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
+
 .timeline-btn:hover {
- transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 /* ----------------- Modale ----------------- */
 .modal-overlay {
   position: fixed;
@@ -85,7 +83,7 @@ color: var(--bg-main);
   align-items: center;
   z-index: 100;
   padding: 1rem;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
@@ -95,8 +93,8 @@ color: var(--bg-main);
   border-radius: 1rem;
   overflow-y: auto;
   position: relative;
-  background-color: #464749; /* bg-card-light */
- color: var(--text-main);
+  background-color: #464749;
+  color: var(--text-main);
 }
 
 .modal-close {
@@ -107,11 +105,12 @@ color: var(--bg-main);
   border: none;
   cursor: pointer;
   background: transparent;
-   color: var(--text-main);
+  color: var(--text-main);
 }
+
 .modal-title {
   text-align: center;
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;
 }
 
 .modal-content p {
@@ -138,7 +137,7 @@ color: var(--bg-main);
 
 .timeline-cv a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* ----------------- Responsive ----------------- */
@@ -159,6 +158,7 @@ color: var(--bg-main);
   .timeline-card {
     width: 90%;
   }
+
   .timeline-title {
     font-size: 1.8rem;
   }
@@ -168,6 +168,7 @@ color: var(--bg-main);
   .timeline-card {
     width: 100%;
   }
+
   .timeline-title {
     font-size: 1.5rem;
   }

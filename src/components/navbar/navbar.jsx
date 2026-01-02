@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo from "../../assets/logo_sm.webp";
 import "./navbar.css";
 
@@ -17,6 +17,9 @@ const CloseIcon = () => (
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // 🔹 Référence au menu mobile pour détecter les clics en dehors
+  const menuRef = useRef(null);
+
   const navItems = [
     { name: "Accueil", href: "#" },
     { name: "À propos", href: "#about" },
@@ -29,8 +32,30 @@ const Navbar = () => {
   const scrollToSection = (href) => {
     if (href === "#") window.scrollTo({ top: 0, behavior: "smooth" });
     else document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+
+    // 🔹 Ferme le menu après avoir cliqué sur un lien
     setIsMobileMenuOpen(false);
   };
+
+  // 🔹 Ajout : fermer le menu mobile en cliquant en dehors
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Si le menu est ouvert et que le clic n'est pas à l'intérieur du menu
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false); // 🔹 on ferme le menu
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside); // 🔹 écoute globale
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside); // 🔹 cleanup
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <nav className="navbar-section">
@@ -43,25 +68,31 @@ const Navbar = () => {
         {/* Menu desktop */}
         <div className="navbar-menu-desktop">
           {navItems.map((item) => (
-            <button key={item.name} onClick={() => scrollToSection(item.href)} className="nav-item">
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.href)}
+              className="nav-item"
+            >
               {item.name}
             </button>
           ))}
         </div>
 
         {/* Hamburger mobile */}
-<button
-  className="navbar-menu-toggle"
-  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-  aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"} // accessibilité
->
-  {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-</button>
+        <button
+          className="navbar-menu-toggle"
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        >
+          {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+        </button>
 
-
-        {/* Mobile menu overlay */}
+        {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="navbar-menu-mobile">
+          <div
+            className="navbar-menu-mobile"
+            ref={menuRef} // 🔹 référence pour le clic en dehors
+          >
             {navItems.map((item) => (
               <button
                 key={item.name}

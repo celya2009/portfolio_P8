@@ -1,6 +1,6 @@
 import React from "react";
 import heroImage from "@/assets/hero.webp";
-import Button from "@/components/button/button"; 
+import Button from "@/components/button/button";
 import "./hero.css";
 
 const Hero = () => {

@@ -4,10 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
- color: var(--bg-main);
-  padding-top: 55px;   /* espace navbar + descente */
-  padding-bottom: 4rem; /* espace sous la section */
+
+  color: var(--bg-main);
+  padding-top: 55px;
+  padding-bottom: 4rem;
   width: 100%;
 }
 
@@ -16,7 +16,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 /* ----------------- Titre ----------------- */
@@ -34,7 +33,7 @@
 }
 
 .project-filter-btn {
-  background-color: var(--accent-lavender); 
+  background-color: var(--accent-lavender);
   color: var(--text-main);
   padding: 0.5rem 1rem;
   border: none;
@@ -46,21 +45,21 @@
 
 .project-filter-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.project-filter-btn.active { 
+.project-filter-btn.active {
   color: var(--accent-lavender);
   border: 1px solid var(--accent-lavender);
 }
 
 /* ----------------- Grille des projets (Flex) ----------------- */
 .projects-grid {
-   display: flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  margin: 1.5rem;  
+  margin: 1.5rem;
 }
 
 /* ----------------- Carte projet ----------------- */
@@ -72,14 +71,13 @@
 .project-card {
   position: relative;
   width: 100%;
-  min-height: 150px;   
+  min-height: 150px;
   overflow: hidden;
   border-radius: 1.5rem;
   cursor: pointer;
   background-color: #464749;
-  box-shadow: 0 8px 16px rgba(12, 12, 12, 0.829); 
+  box-shadow: 0 8px 16px rgba(12, 12, 12, 0.829);
   transition: transform 0.3s ease;
-   
 }
 
 
@@ -88,10 +86,9 @@
 }
 
 .project-card-image {
-width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 
 /* Overlay sombre */
@@ -110,7 +107,7 @@ width: 100%;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
   border-radius: 1.5rem;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .project-card:hover .project-overlay {
@@ -119,27 +116,25 @@ width: 100%;
 }
 
 /* Texte overlay */
-.project-overlay h3 { 
-  font-size: 1.2rem;  
+.project-overlay h3 {
+  font-size: 1.2rem;
 }
 
 .project-overlay p {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  
 }
 
 /* ----------------- Modale ----------------- */
 .modal-overlay {
   position: fixed;
-  
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
   padding: 1rem;
   overflow-y: auto;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
@@ -153,7 +148,8 @@ width: 100%;
   color: var(--text-main);
   font-family: var(--font-main);
 }
-.project-link{
+
+.project-link {
   color: var(--accent-lavender);
 }
 

@@ -1,7 +1,7 @@
 .button-primary {
   font-family: var(--font-main);
   background-color: var(--accent-lavender);
- color: #1a1a1a;
+  color: #1a1a1a;
   border: none;
   padding: 0.6em 1.2em;
   border-radius: 0.5em;
@@ -10,8 +10,8 @@
 }
 
 .button-primary:hover {
- background-color: var(--accent-cyan);
- color: #FFFFFF; 
+  background-color: var(--accent-cyan);
+  color: #FFFFFF;
 }
 
 .button-outline {
@@ -27,5 +27,5 @@
 
 .button-outline:hover {
   background-color: var(--accent-pink);
-  color: #FFFFFF; 
+  color: #FFFFFF;
 }

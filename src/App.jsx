@@ -10,9 +10,9 @@ const App = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route 
-          path="/" 
-          element={<Index isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />} 
+        <Route
+          path="/"
+          element={<Index isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>

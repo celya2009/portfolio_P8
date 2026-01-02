@@ -32,11 +32,11 @@ const Timeline = () => {
 
         <div className="timeline-container">
           {experiences.map((exp) => (
-           <Card key={exp.id} className="timeline-card">
-          <p className="timeline-year">{exp.year}</p>        
-          {exp.company && <h3 className="timeline-company">{exp.company}</h3>}
+            <Card key={exp.id} className="timeline-card">
+              <p className="timeline-year">{exp.year}</p>
+              {exp.company && <h3 className="timeline-company">{exp.company}</h3>}
 
-    <h3 className="timeline-title-card">{exp.title}</h3> {/* Titre de l'expérience */}
+              <h3 className="timeline-title-card">{exp.title}</h3>
               <button
                 className="timeline-btn"
                 onClick={() => setOpenModal(exp.id)}
@@ -53,13 +53,13 @@ const Timeline = () => {
                     >
                       ×
                     </button>
-                   <h3 className="modal-title">{exp.title}</h3>
+                    <h3 className="modal-title">{exp.title}</h3>
                     {exp.company && <div>{exp.company}</div>}
                     <p>{exp.description}</p>
                   </div>
                 </div>
               )}
-               </Card>
+            </Card>
           ))}
         </div>
 

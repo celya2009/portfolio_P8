@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Button from "@/components/button/button"; 
-import Card from "@/components/card/card"; 
+import Button from "@/components/button/button";
+import Card from "@/components/card/card";
 import "./projects.css";
 
 // Images des projets
@@ -104,10 +104,10 @@ const Projects = () => {
     return (
       <div className="project-card-wrapper">
         <div className="project-card" onClick={() => setModalOpen(true)}>
-          <img src={project.image} alt={project.title} className="project-card-image"/>
+          <img src={project.image} alt={project.title} className="project-card-image" />
           <div className="project-overlay">
-             <h3 className="project-title">{project.title}</h3>
-             <p className="project-description">{project.description}</p>
+            <h3 className="project-title">{project.title}</h3>
+            <p className="project-description">{project.description}</p>
           </div>
         </div>
         {modalOpen && (
@@ -138,15 +138,15 @@ const Projects = () => {
       <div className="projects-container">
         <h2 className="projects-title">Projets</h2>
 
-       <div className="projects-filters">
-  {categories.map(category => (
-    <Button
-      key={category}
-      type={filter === category ? "primary" : "outline"} // primary si actif, sinon outline
-      onClick={() => setFilter(category)}
-    >
-      {category}
-    </Button>
+        <div className="projects-filters">
+          {categories.map(category => (
+            <Button
+              key={category}
+              type={filter === category ? "primary" : "outline"} // primary si actif, sinon outline
+              onClick={() => setFilter(category)}
+            >
+              {category}
+            </Button>
           ))}
         </div>
 

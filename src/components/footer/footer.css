@@ -8,16 +8,13 @@
   padding: 0.2rem 0;
 }
 
-/* Container interne avec max-width et centrage */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  /* texte à gauche, liens à droite */
   align-items: center;
   flex-wrap: wrap;
-  /* pour responsive */
   padding: 0 1rem;
 }
 
@@ -25,7 +22,6 @@
 .footer-left {
   font-size: 0.875rem;
   color: white;
-
 }
 
 /* Liens à droite */
