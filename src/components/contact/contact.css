@@ -123,7 +123,7 @@ textarea::placeholder {
   color: var(--bg-main);
 }
 
-  npm
+  
 @media (max-width: 768px) {
   .contact-title {
     font-size: 1.8rem;
