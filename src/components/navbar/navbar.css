@@ -56,20 +56,16 @@
 }
 
 .nav-item:hover {
-  background-color: var(--accent-pink);
-  color: var(--bg-main);
-  border-radius: 0.5em;
+  color: #ff7d04; /* couleur primaire hover */
 }
 
 /* Hamburger mobile */
 .navbar-menu-toggle {
   display: none;
-  background: transparent;
+  background: none;
   border: none;
   cursor: pointer;
   color: #ffffff;
-    cursor: pointer;
-       
 }
 
 /* Icon SVG */
@@ -82,29 +78,34 @@
 /* Menu mobile overlay */
 .navbar-menu-mobile {
   position: fixed;
-  top: 40px; /* sous la navbar */
+  top: 60px; /* sous la navbar */
   left: 0;
-   box-shadow: none ;
-   outline: none;
+  width: 100%;
   background-color: #1f1f1f;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   gap: 1rem;
   padding: 1rem 0;
- 
+  z-index: 999;
 }
 
 .nav-item-mobile {
- 
+  width: 90%;
+  padding: 0.75rem;
   text-align: center;
-  background: transparent;
-  
-  color: #ffffff;    
+  background: none;
+  border: 1px solid #ffffff;
+  border-radius: 0.5rem;
+  color: #ffffff;
   font-size: 1rem;
   cursor: pointer;
-  
+  transition: all 0.3s ease;
+}
 
+.nav-item-mobile:hover {
+  background-color: var(--accent-pink);
+  color: #FFFFFF; 
 }
 
 /* ----------------- Responsive ----------------- */

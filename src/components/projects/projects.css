@@ -35,7 +35,7 @@
 
 .project-filter-btn {
   background-color: var(--accent-lavender); 
-color: var(--bg-main);
+  color: var(--text-main);
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5rem;

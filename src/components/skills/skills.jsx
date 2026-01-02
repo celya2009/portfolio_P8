@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./skills.css";
-import Card from "@/components/card/Card"; 
+import Card from "@/components/card/card"; 
 
 // Logos
 import htmlLogo from "@/assets/logos/html5.webp";

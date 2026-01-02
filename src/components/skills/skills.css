@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 7rem;
-color: var(--bg-main);
+  color: var(--text-main);
 }
 .skills-title{
   font-size: 2.5rem;
@@ -70,6 +70,7 @@ flex: 0 0 100px;
   max-width: 500px;
   width: 90%;
   position: relative;
+  
 }
 
 .skills-modal-close {
@@ -91,7 +92,7 @@ flex: 0 0 100px;
 }
 
 .skills-modal-desc {
-  color: var(--bg-main);
+  color: var(--text-main);
 }
 
 .skills-modal-level {
@@ -103,7 +104,7 @@ flex: 0 0 100px;
 
 .skills-modal-level-label {
   font-weight: 600;
-  
+    color: var(--text-main);
 }
 
 .skills-progress-bg {
@@ -135,6 +136,7 @@ flex: 0 0 100px;
   width: 90%;
   position: relative;
   text-align: center;
+  color: var(--text-main);
 }
 
 /* Bouton fermeture */
@@ -146,7 +148,7 @@ flex: 0 0 100px;
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: var(--bg-main);
+    color: var(--text-main);
 }
 
 /* Titre et description */

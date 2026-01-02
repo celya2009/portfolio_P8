@@ -90,14 +90,16 @@ flex-direction: row;
   border-radius: 0.5rem;
   border: 1px solid #3a3b3c; 
     background-color: #454647;
-  color: var(--bg-main);
+   color: #FFFFFF ; 
   font-size: 1rem;
   resize: vertical;
 }
 
-.contact-card textarea {
-
+input::placeholder,
+textarea::placeholder {
+  color: #FFFFFF ;
 }
+
 
 .contact-card button {
     font-family: var(--font-main);
@@ -108,7 +110,7 @@ flex-direction: row;
   border-radius: 0.5em;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: var(--text-main)
+   color: #1a1a1a;
 }
 
 .contact-card button:hover {
@@ -121,8 +123,7 @@ flex-direction: row;
   color: var(--bg-main);
 }
 
-  
-/* ----------------- Responsive ----------------- */
+  npm
 @media (max-width: 768px) {
   .contact-title {
     font-size: 1.8rem;

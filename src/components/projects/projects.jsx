@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "@/components/button/button"; 
+import Card from "@/components/card/card"; 
 import "./projects.css";
 
 // Images des projets
