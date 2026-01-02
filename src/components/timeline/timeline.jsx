@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./timeline.css";
-import cvPdf from "../assets/mon-cv.pdf";
+import Card from "@/components/card/card";
+import cvPdf from "../../assets/mon-cv.pdf";
 
 const Timeline = () => {
   const experiences = [
@@ -31,10 +32,11 @@ const Timeline = () => {
 
         <div className="timeline-container">
           {experiences.map((exp) => (
-            <div key={exp.id} className="timeline-card">
-              <div className="timeline-year">{exp.year}</div>
-              <h3 className="timeline-title-card">{exp.title}</h3>
-              {exp.company && <div className="timeline-company">{exp.company}</div>}
+           <Card key={exp.id} className="timeline-card">
+          <p className="timeline-year">{exp.year}</p>        
+          {exp.company && <h3 className="timeline-company">{exp.company}</h3>}
+
+    <h3 className="timeline-title-card">{exp.title}</h3> {/* Titre de l'expérience */}
               <button
                 className="timeline-btn"
                 onClick={() => setOpenModal(exp.id)}
@@ -51,13 +53,13 @@ const Timeline = () => {
                     >
                       ×
                     </button>
-                    <h3>{exp.title}</h3>
+                   <h3 className="modal-title">{exp.title}</h3>
                     {exp.company && <div>{exp.company}</div>}
                     <p>{exp.description}</p>
                   </div>
                 </div>
               )}
-            </div>
+               </Card>
           ))}
         </div>
 

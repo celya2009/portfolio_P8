@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./skills.css";
+import Card from "@/components/card/Card"; 
 
 // Logos
 import htmlLogo from "@/assets/logos/html5.webp";
@@ -12,7 +13,6 @@ import sassLogo from "@/assets/logos/sass.webp";
 import githubLogo from "@/assets/logos/github.webp";
 import figmaLogo from "@/assets/logos/figma.webp";
 
-
 const technicalSkills = [
   { name: "HTML5", logo: htmlLogo, description: "Intégration de contenu conforme à une maquette, structuration sémantique.", level: "Confirmé" },
   { name: "CSS3", logo: cssLogo, description: "Mise en forme et responsive design avec CSS.", level: "Confirmé" },
@@ -23,7 +23,6 @@ const technicalSkills = [
   { name: "Sass", logo: sassLogo, description: "Styles avancés avec variables et mixins.", level: "Débutant" },
   { name: "GitHub", logo: githubLogo, description: "Gestion de versions et collaboration via Git.", level: "Intermédiaire" },
   { name: "Figma", logo: figmaLogo, description: "Intégration d'une maquette design et adaptation front-end.", level: "Intermédiaire" },
-  
 ];
 
 const Skills = () => {
@@ -39,14 +38,10 @@ const Skills = () => {
 
   const getLevelWidth = (level) => {
     switch (level) {
-      case "Débutant":
-        return 30;
-      case "Intermédiaire":
-        return 60;
-      case "Confirmé":
-        return 100;
-      default:
-        return 0;
+      case "Débutant": return 30;
+      case "Intermédiaire": return 60;
+      case "Confirmé": return 100;
+      default: return 0;
     }
   };
 
@@ -68,49 +63,20 @@ const Skills = () => {
 
   return (
     <section id="skills" className="skills-section">
-      <div className="skills-container">
-      <h2 className="skills-title">
-        Compétences
-      </h2>
+      <h2 className="skills-title">Compétences</h2>
 
-      <p className="skills-intro">
-        Cliquez sur un logo pour voir mon niveau de maîtrise.
-      </p>
-
-      <div className="skills-card">
-        <div className="skills-grid">
-          {technicalSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className="skill-item"
-              onClick={() => openModal(skill.name)}
-            >
+      <div className="skills-grid">
+        {technicalSkills.map((skill) => (
+          <Card key={skill.name} className="skills-card">
+            <div className="skill-item" onClick={() => openModal(skill.name)}>
               <img src={skill.logo} alt={skill.name} className="skill-logo" />
-              <span className="skill-name">
-                {skill.name}
-              </span>
+              <h3>{skill.name}</h3>
             </div>
-          ))}
-        </div>
+          </Card>
+        ))}
       </div>
-      </div>
-     <p className="skills-info-bottom">
-  Ces compétences sont mises en œuvre dans les{" "}
-  <a
-    href="#projects"
-    className="skills-link"
-    onClick={(e) => {
-      e.preventDefault(); // empêche le saut instantané
-      document
-        .getElementById("projects")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }}
-  >
-    projets réalisés
-  </a>
-  .
-</p>
 
+      
 
       {technicalSkills.map(
         (skill) =>
@@ -120,30 +86,17 @@ const Skills = () => {
               className="skills-modal-overlay"
               onClick={closeModal}
             >
-              <div
-                className="skills-modal"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  className="skills-modal-close"
-                  onClick={closeModal}
-                >
-                  ×
-                </button>
+              <div className="skills-modal" onClick={(e) => e.stopPropagation()}>
+                <button className="skills-modal-close" onClick={closeModal}>×</button>
 
                 <h3 className="skills-modal-title">{skill.name}</h3>
                 <p className="skills-modal-desc">{skill.description}</p>
 
                 <div className="skills-modal-level">
                   <span className="skills-modal-level-label">Niveau</span>
-
                   <div className="skills-progress-bg">
-                    <div
-                      className="skills-progress-fill"
-                      style={{ width: `${progress}%` }}
-                    />
+                    <div className="skills-progress-fill" style={{ width: `${progress}%` }} />
                   </div>
-
                   <span className="skills-modal-level-text">{skill.level}</span>
                 </div>
               </div>

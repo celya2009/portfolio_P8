@@ -1,13 +1,13 @@
 /* ----------------- Conteneur général ----------------- */
 .projects-section {
-  
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #464749;
-  color: #f9fafb;
+  
+ color: var(--bg-main);
   padding-top: 55px;   /* espace navbar + descente */
-  padding-bottom: 3rem; /* espace sous la section */
+  padding-bottom: 4rem; /* espace sous la section */
   width: 100%;
 }
 
@@ -22,11 +22,6 @@
 /* ----------------- Titre ----------------- */
 .projects-title {
   font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  line-height: 1.3;
-  margin-top: 0;
-  color: #f9fafb;
 }
 
 /* ----------------- Filtres ----------------- */
@@ -39,19 +34,24 @@
 }
 
 .project-filter-btn {
-  padding: 0.5rem 1.5rem;
-  border: 2px solid #f9fafb;
-  border-radius: 9999px; /* pill button */
-  transition: all 0.2s ease;
+  background-color: var(--accent-lavender); 
+color: var(--bg-main);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 0.9rem;
-  background-color: #343536;
-  color: #f9fafb;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
-.project-filter-btn.active {
-  background-color: #f9fafb;
-  color: #343536;
+.project-filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.project-filter-btn.active { 
+  color: var(--accent-lavender);
+  border: 1px solid var(--accent-lavender);
 }
 
 /* ----------------- Grille des projets (Flex) ----------------- */
@@ -59,10 +59,8 @@
    display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-    
+  gap: 1.5rem;
+  margin: 1.5rem;  
 }
 
 /* ----------------- Carte projet ----------------- */
@@ -74,14 +72,16 @@
 .project-card {
   position: relative;
   width: 100%;
-  min-height: 150px;   /* 🔑 clé du problème */
+  min-height: 150px;   
   overflow: hidden;
   border-radius: 1.5rem;
   cursor: pointer;
   background-color: #464749;
   box-shadow: 0 8px 16px rgba(12, 12, 12, 0.829); 
   transition: transform 0.3s ease;
+   
 }
+
 
 .project-card:hover {
   transform: translateY(-5px);
@@ -119,26 +119,20 @@ width: 100%;
 }
 
 /* Texte overlay */
-.project-overlay h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #f9fafb;
+.project-overlay h3 { 
+  font-size: 1.2rem;  
 }
 
 .project-overlay p {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #e5e7eb;
+  
 }
 
 /* ----------------- Modale ----------------- */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,16 +143,18 @@ width: 100%;
 }
 
 .modal-content {
-  max-width: 800px;
-  width: 100%;
+  max-width: 300px;
+  height: 50%;
   padding: 2rem;
+  margin: 2rem;
   border-radius: 1.5rem;
   position: relative;
-
-  overflow-y: auto;
   background-color: #343536;
-  color: #f9fafb;
-  box-shadow: 0 8px 16px rgba(67, 81, 143, 0.4);
+  color: var(--text-main);
+  font-family: var(--font-main);
+}
+.project-link{
+  color: var(--accent-lavender);
 }
 
 @media (max-width: 1024px) {

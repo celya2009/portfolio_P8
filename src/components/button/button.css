@@ -1,0 +1,33 @@
+.button-primary {
+  font-family: var(--font-main);
+  background-color: var(--accent-lavender);
+  color: var(--bg-main);
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-main)
+}
+
+.button-primary:hover {
+  background-color: var(--accent-cyan);
+  color: var(--bg-main);
+}
+
+.button-outline {
+  font-family: var(--font-main);
+  background-color: transparent;
+  color: var(--accent-pink);
+  border: 2px solid var(--accent-pink);
+  padding: 0.6em 1.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-main)
+}
+
+.button-outline:hover {
+  background-color: var(--accent-pink);
+  color: var(--bg-main);
+}

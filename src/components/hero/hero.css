@@ -1,12 +1,12 @@
 /* ===== Conteneur principal ===== */
 .section {
   width: 100%;
-  min-height: 100vh; /* prend toujours tout l'écran */
+  min-height: 100vh;
   display: flex;
-  justify-content: center; /* centré vertical */
-  align-items: center;     /* centré horizontal */
+  justify-content: center;
+  align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden;  
 }
 
 /* ===== Fond + overlay ===== */
@@ -31,7 +31,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.6); /* un peu plus sombre pour contraste */
 }
 
 /* ===== Contenu centré ===== */
@@ -41,7 +41,7 @@
   text-align: center;
   padding: 1rem;
   max-width: 80rem;
-  color: #f3f4f6;
+  color: var(--text-main);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,14 +52,12 @@
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
-  margin: 0;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  margin: 0; 
 }
 
 .hero-content h2 {
   font-size: 2rem;
   font-weight: 600;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 .hero-content p {
@@ -70,57 +68,11 @@
 }
 
 /* ===== Boutons ===== */
-.hero-buttons {
+.hero-button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-}
-
-.hero-buttons button {
-  padding: 0.75rem 2rem;      /* dimensions */
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 0.5rem;      /* arrondi */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Bouton principal (gauche) */
-.hero-buttons .btn-primary {
-  background-color: #ff7d04;
-  color: #fff;
-  border: none;               /* supprime bordure */
-}
-
-.hero-buttons .btn-primary:hover {
-  background-color: #e66f00;
-}
-
-/* Bouton secondaire (droite) */
-.hero-buttons .btn-outline {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;    /* bordure blanche */
-}
-
-.hero-buttons .btn-outline:hover {
-  background-color: #ff7d04;
-  color: #fff;
-  border-color: #fff;         /* garde la bordure blanche */
-}
-
-
-
-/* ===== Flèche ===== */
-.hero-arrow {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  color: rgba(255,255,255,0.8);
-  animation: bounce 2s infinite;
 }
 
 /* ===== Responsive ===== */

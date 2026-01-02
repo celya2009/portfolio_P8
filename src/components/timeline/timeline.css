@@ -1,8 +1,8 @@
 /* ----------------- Conteneur général ----------------- */
 .timeline-section {
   position: relative;       /* chaque section prend la hauteur de l'écran */
-  padding-top: 55px;       /* espace pour navbar */
-  padding-bottom: 6rem;
+  padding-top: 65px;       /* espace pour navbar */
+  padding-bottom: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@
 /* ----------------- Conteneur interne ----------------- */
 .container {
   width: 100%;
-
+   
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,18 +22,13 @@
 /* ----------------- Titre ----------------- */
 .timeline-title {
   font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  line-height: 1.3;
-  margin-top: 0;
-  color: #f9fafb; /* texte clair comme les autres sections */
 }
 
 /* ----------------- Timeline Cards ----------------- */
 .timeline-container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;         /* cartes sur plusieurs lignes si écran réduit */
+         /* cartes sur plusieurs lignes si écran réduit */
   justify-content: center;  /* cartes centrées */
   gap: 2rem;
 }
@@ -44,48 +39,40 @@
   align-items: center;
  justify-content: space-between; 
   padding: 1rem;
- 
-  border-radius: 1rem;  
-     
-  box-shadow: 0 4px 8px rgb(255 255 255 / 50%);
-  background-color: #343536; /* fond sombre type card */
+  margin: 1rem;
 }
 
 .timeline-year {
-  color: #b26500;
+  
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .timeline-title-card {
   font-weight: 700;
-  color: #ffffff;
+  
   margin-bottom: 0.5rem;
 }
 
 .timeline-company {
-  color: #e5e7eb;
-  margin-bottom: 0.5rem;
+
+  margin-bottom: 0.9rem;
 }
 
 .timeline-btn {
-  margin-top: 1rem;
+  background-color: var(--accent-lavender); 
+color: var(--bg-main);
   padding: 0.5rem 1rem;
+  border: none;
   border-radius: 0.5rem;
-  border: 2px solid #f9fafb;
-  background-color: transparent;
-  color: #f9fafb;
-  cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s ease;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
-
 .timeline-btn:hover {
-  background-color: #f97316; /* couleur primaire hover */
-  border-color: #f97316;
-  color: #ffffff;
+ transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-
 /* ----------------- Modale ----------------- */
 .modal-overlay {
   position: fixed;
@@ -109,7 +96,7 @@
   overflow-y: auto;
   position: relative;
   background-color: #464749; /* bg-card-light */
-  color: #f9fafb;
+color: var(--bg-main);
 }
 
 .modal-close {
@@ -120,11 +107,12 @@
   border: none;
   cursor: pointer;
   background: transparent;
-  color: #f9fafb;
+  color: var(--bg-main);
 }
 
-.modal-content h3 {
-  margin-bottom: 1rem;
+.modal-title {
+  text-align: center;
+  margin-bottom: 1.5rem; 
 }
 
 .modal-content p {
@@ -144,15 +132,14 @@
   border-radius: 0.5rem;
   text-decoration: none;
   font-weight: 600;
-  border: 2px solid #f9fafb;
-  color: #f9fafb;
   transition: all 0.2s ease;
+  color: var(--accent-lavender);
+  border: 1px solid var(--accent-lavender);
 }
 
 .timeline-cv a:hover {
-  background-color: #f97316; /* couleur primaire hover */
-  border-color: #f97316;
-  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* ----------------- Responsive ----------------- */

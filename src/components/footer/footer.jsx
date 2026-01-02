@@ -5,13 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer-section" role="contentinfo">
       <div className="footer-container">
-        {/* Texte copyright à gauche */}
-        <p className="footer-left">
-          © {new Date().getFullYear()} Portfolio
-        </p>
-
-        {/* Liens à droite */}
-        <nav className="footer-right" aria-label="Liens vers mes profils">
+         <nav className="footer-right" aria-label="Liens vers mes profils">
           <a href="https://github.com/celya2009" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>

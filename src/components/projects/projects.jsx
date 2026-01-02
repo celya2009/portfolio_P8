@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import Button from "@/components/button/button"; 
 import "./projects.css";
 
 // Images des projets
-import bookiImg from "../assets/projet-booki.webp";
-import kasaImg from "../assets/projet-kasa.webp";
-import grimoireImg from "../assets/projet-mon-vieux-grimoire.webp";
-import sophieBluelImg from "../assets/projet-sophie-bluel.webp";
-import ninaImg from "../assets/projet-nina-carducci.webp";
+import bookiImg from "../../assets/projet-booki.webp";
+import kasaImg from "../../assets/projet-kasa.webp";
+import grimoireImg from "../../assets/projet-mon-vieux-grimoire.webp";
+import sophieBluelImg from "../../assets/projet-sophie-bluel.webp";
+import ninaImg from "../../assets/projet-nina-carducci.webp";
 
 const projectsData = [
   {
@@ -136,15 +137,15 @@ const Projects = () => {
       <div className="projects-container">
         <h2 className="projects-title">Projets</h2>
 
-        <div className="projects-filters">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-              className={`project-filter-btn ${filter === category ? "active" : ""}`}
-            >
-              {category}
-            </button>
+       <div className="projects-filters">
+  {categories.map(category => (
+    <Button
+      key={category}
+      type={filter === category ? "primary" : "outline"} // primary si actif, sinon outline
+      onClick={() => setFilter(category)}
+    >
+      {category}
+    </Button>
           ))}
         </div>
 

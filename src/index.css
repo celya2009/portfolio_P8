@@ -1,10 +1,53 @@
-html,main {
+:root {
+  --bg-main: #2C2C2C;
+  --text-main: #E4E4E4;
+  --accent-cyan: #A8DADC;
+  --accent-pink: #FFC1CC;
+  --accent-lavender: #B39CD0;
+  --font-main: 'Inter', sans-serif;
+}
+
+html, body, main {
   display: flex;
   flex-direction: column;
   width: 100%;
-    background-color: #464749; 
-   overflow-x: hidden;
-     margin: 0;
+  overflow-x: hidden;
+  margin: 0;
   padding: 0;
+  background-color: var(--bg-main);
+  font-family: var(--font-main);
+  color: var(--text-main);
 }
+
+/* Titres globaux */
+h1 {
+  color: var(--accent-lavender);
+  margin: 0.5em 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: var(--accent-cyan);
+  margin: 0.5em 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+h3, h4, h5, h6 {
+  color: var(--accent-pink);
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Paragraphes */
+p {
+  font-family: var(--font-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0.5em 0 1em 0;
+}
+
+
+
+
 

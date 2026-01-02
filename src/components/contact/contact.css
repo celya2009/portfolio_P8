@@ -1,57 +1,53 @@
 /* ----------------- Conteneur général ----------------- */ 
 .contact-section {
   position: relative;
-  padding-top: 50px;
-  padding-bottom: 5rem;
+  padding-top: 30px;
+  padding-bottom: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  color: #f9fafb;
+
 }
 
 /* ----------------- Conteneur interne ----------------- */
 .contact-container {
-  width: 100%;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  align-items:center;
+  gap: 1rem;
   padding: 1rem;
-   margin-top: 0;
 }
 
 /* ----------------- Titre ----------------- */
 .contact-title {
   font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 1rem; /* petit espace avec les cards */
+ 
 }
 
 /* ----------------- Grille informations + formulaire ----------------- */
 .contact-grid {
   display: flex;
-  gap: 1.5rem;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
+flex-direction: row;  
+
+ margin: 1rem;
+ padding: 1rem;
+   gap: 1rem;
+    flex-wrap: nowrap;         /* interdit aux cartes de passer à la ligne */
+  justify-content: space-between; 
 }
 
 /* ----------------- Cartes ----------------- */
 .contact-card {
-  background-color: #3a3b3c;
-  color: #f9fafb;
+ 
+ 
   padding: 1rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 8px rgb(255, 252, 252);
-  flex: 1 1 300px;
-  max-width: 300px;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
   gap: 2rem;
   font-size: 1rem;
 }
@@ -59,36 +55,26 @@
 /* ----------------- Texte et liens ----------------- */
 .contact-intro {
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
+  margin: 1rem;
+}
+.contact-link{
+   display: flex;             
+  flex-direction: column;    
+  gap: 0.7rem;               
+  margin-top: 3rem;
 }
 
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: auto;
-}
+.contact-link a {
+  color: var(--accent-lavender);
+  }
+
 
 .contact-card h3 {
   font-size: 1.8rem;
-  font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
-}
-
-.contact-links a {
-  color: #facc15; /* jaune */
-  text-decoration: underline;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.2s ease;
-  font-size: 1.1rem;
-}
-
-.contact-links a:hover {
-  color: #fbbf24;
 }
 
 /* ----------------- Formulaire ----------------- */
@@ -100,53 +86,64 @@
 
 .contact-card input,
 .contact-card textarea {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
-  border: 1px solid #3a3b3c; /* même couleur que le fond */
-  background-color: #616263; /* même couleur que la card */
-  color: #f9fafb;
+  border: 1px solid #3a3b3c; 
+    background-color: #454647;
+  color: var(--bg-main);
   font-size: 1rem;
   resize: vertical;
 }
 
 .contact-card textarea {
-  min-height: 120px;
+
 }
 
 .contact-card button {
-   padding: 0.5rem 1.2rem;
-  border-radius: 0.75rem;
+    font-family: var(--font-main);
+  background-color: var(--accent-lavender);
+  color: var(--bg-main);
   border: none;
-  background-color: #ff7d04;
-  color: #fff;
-  font-weight: 600;
+  padding: 0.6em 1.2em;
+  border-radius: 0.5em;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.90rem;
-  width: fit-content;
-  margin: 1rem auto 0 auto;
+  color: var(--text-main)
 }
 
 .contact-card button:hover {
-  background-color: #e66f00;
-  box-shadow: 0 4px 12px rgba(255, 125, 4, 0.6);
-  transform: translateY(-2px);
+    background-color: var(--accent-cyan);
+  color: var(--bg-main);
 }
 
 .contact-card button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(255, 125, 4, 0.6);
+ background-color: var(--accent-pink);
+  color: var(--bg-main);
 }
 
+  
 /* ----------------- Responsive ----------------- */
 @media (max-width: 768px) {
   .contact-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .contact-grid {
+    align-items: stretch;
   }
 }
 
 @media (max-width: 480px) {
   .contact-title {
     font-size: 1.5rem;
+  }
+  .contact-card h3{
+     font-size: 1rem;
+  }  
+  .contact-grid {
+       flex-direction: column; 
+  }
+  .contact-card {
+    max-height: 28vh;          /* 👈 clé */
+    overflow-y: auto;          /* scroll interne */
   }
 }

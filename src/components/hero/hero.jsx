@@ -1,20 +1,7 @@
+import React from "react";
 import heroImage from "@/assets/hero.webp";
+import Button from "@/components/button/button"; 
 import "./hero.css";
-
-const ArrowDown = ({ className = "", size = 32 }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="2"
-    stroke="currentColor"
-    width={size}
-    height={size}
-    className={className}
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-  </svg>
-);
 
 const Hero = () => {
   const scrollTo = (id) => {
@@ -38,20 +25,15 @@ const Hero = () => {
           pour l'accessibilité et la performance web.
         </p>
 
-        <div className="hero-buttons">
-          <button className="btn-primary" onClick={() => scrollTo("contact")}>
+        <div className="hero-button">
+          <Button type="primary" onClick={() => scrollTo("contact")}>
             Me contacter
-          </button>
+          </Button>
 
-          <button className="btn-outline" onClick={() => scrollTo("projects")}>
+          <Button type="outline" onClick={() => scrollTo("projects")}>
             Voir mes projets
-          </button>
+          </Button>
         </div>
-      </div>
-
-      {/* Flèche en bas */}
-      <div className="hero-arrow">
-        <ArrowDown size={48} />
       </div>
     </section>
   );

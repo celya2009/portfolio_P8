@@ -5,26 +5,27 @@
   width: 100%;
   box-sizing: border-box;
   background-color: #1f1f1f;
-  padding: 0.2rem 0; 
+  padding: 0.2rem 0;
 }
 
 /* Container interne avec max-width et centrage */
 .footer-container {
   max-width: 1200px;
-  width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* texte à gauche, liens à droite */
+  justify-content: space-between;
+  /* texte à gauche, liens à droite */
   align-items: center;
-  flex-wrap: wrap; /* pour responsive */
- 
+  flex-wrap: wrap;
+  /* pour responsive */
+  padding: 0 1rem;
 }
 
 /* Texte copyright à gauche */
 .footer-left {
   font-size: 0.875rem;
-  color: white; 
-  
+  color: white;
+
 }
 
 /* Liens à droite */

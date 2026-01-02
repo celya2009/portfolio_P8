@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/logo_sm.webp";
+import logo from "../../assets/logo_sm.webp";
 import "./navbar.css";
 
 const MenuIcon = () => (
@@ -50,9 +50,14 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger mobile */}
-        <button className="navbar-menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-        </button>
+<button
+  className="navbar-menu-toggle"
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"} // accessibilité
+>
+  {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+</button>
+
 
         {/* Mobile menu overlay */}
         {isMobileMenuOpen && (
