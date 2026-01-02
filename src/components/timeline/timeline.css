@@ -44,11 +44,14 @@
 .timeline-year {
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .timeline-title-card {
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .timeline-company {
@@ -160,16 +163,8 @@
   }
 
   .timeline-title {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
 }
 
-@media (max-width: 360px) {
-  .timeline-card {
-    width: 100%;
-  }
 
-  .timeline-title {
-    font-size: 1.5rem;
-  }
-}

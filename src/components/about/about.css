@@ -7,7 +7,6 @@
   padding-top: 65px;
   padding-bottom: 4.5rem;
   width: 100%;
-
 }
 
 .about-section h2 {
@@ -34,15 +33,16 @@
 }
 
 /* ===== Texte ===== */
-.card h3 {
-  font-size: 2.5rem;
+.section-competences {
+  text-align: center;
+  font-size: 1.7rem;
 }
 
-.about-section h3 {
+.section-methodologie {
   text-align: center;
-  font-weight: 700;
-  line-height: 1.3;
+  font-size: 1.7rem;
 }
+
 
 .about-section p {
   text-align: center;
@@ -58,7 +58,12 @@
     font-size: 2rem;
   }
 
-  .card h3 {
+  .section-competences {
+    font-size: 1.5rem;
+  }
+
+  .section-methodologie {
+    text-align: center;
     font-size: 1.5rem;
   }
 }
@@ -72,13 +77,14 @@
     font-size: 0.85rem;
   }
 
-  .card h3 {
+  .section-competences {
     font-size: 1.25rem;
   }
+}
 
-  .card ul {
-    font-size: 0.9rem;
-  }
+.section-methodologie {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 480px) {
@@ -86,11 +92,12 @@
     font-size: 1.5rem;
   }
 
-  .card h3 {
+  .section-competences {
     font-size: 1rem;
   }
 
-  .card ul {
-    font-size: 0.7rem;
+  .section-methodologie {
+    text-align: center;
+    font-size: 1rem;
   }
 }

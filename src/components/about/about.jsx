@@ -19,13 +19,13 @@ const About = () => {
 
         {/* Card globale */}
         <Card className="about-card">
-          <h3>Compétences</h3>
+        <h3 className="section-competences">Compétences</h3>
           <p>
             Front-End : HTML5, CSS3, JavaScript, React, React Router,
             Back-End : Node.js, Express, MongoDB
           </p>
 
-          <h3>Méthodologie</h3>
+         <h3 className="section-methodologie">Méthodologie</h3>
           <p>
             Agile, design-driven, priorité à l’accessibilité et aux performances.
             Interface claire et intuitive, rigueur technique et lisibilité du code.
