@@ -44,18 +44,21 @@ const Contact = () => {
           {/* Formulaire */}
           <Card className="contact-card">
             <form onSubmit={handleSubmit}>
+              <label htmlFor="name">Nom</label>
               <input
                 type="text"
                 id="name"
                 placeholder="Votre nom"
                 required
               />
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
                 placeholder="Votre email"
                 required
               />
+              <label htmlFor="message">Message</label>
               <textarea
                 id="message"
                 value={message}
@@ -63,7 +66,7 @@ const Contact = () => {
                 placeholder="Votre message"
                 rows={5}
                 required
-              />
+              ></textarea>
               <Button type="primary" htmlType="submit">
                 Envoyer le message
               </Button>

@@ -1,6 +1,6 @@
 # Portfolio Développeur Web
 
-Ce projet est le portfolio de **Malika Salhi**, développeuse web full stack junior, spécialisé en **React**, **Node.js** et **MongoDB**.
+Ce projet est le portfolio de **Malika Salhi**, développeuse web full stack junior, spécialisée en **React**, **Node.js** et **MongoDB**.
 
 ## Description
 
@@ -21,3 +21,17 @@ git clone <url-du-projet>
 cd portfolio
 npm install
 npm run dev
+```
+
+
+## Déploiement
+
+Le site est publié en ligne via **GitHub Pages**.  
+
+Pour accéder à la version en ligne : [Portfolio en ligne](https://celya2009.github.io/portfolio_P8/)
+
+Le dépôt Git contient :
+- Un **README** structuré
+- Le code **propre et organisé**
+- L'historique des **commits lisible**
+- Instructions pour **installer et lancer le projet localement**
